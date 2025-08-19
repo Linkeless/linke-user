@@ -1,0 +1,20 @@
+{
+  "menu": {
+    "dashboard": "仪表板",
+    "subscriptions": "订阅管理",
+    "plans": "套餐选择",
+    "orders": "订单管理",
+    "tickets": "工单支持",
+    "nodes": "节点",
+    "statistics": "使用统计",
+    "support": "支持",
+    "profile": "个人资料",
+    "settings": "设置"
+  },
+  "user": {
+    "welcome": "欢迎",
+    "profile": "用户资料",
+    "account": "账户",
+    "preferences": "偏好设置"
+  }
+}

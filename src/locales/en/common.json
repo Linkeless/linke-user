@@ -1,0 +1,77 @@
+{
+  "app": {
+    "name": "Linke",
+    "title": "Linke User Portal"
+  },
+  "actions": {
+    "login": "Login",
+    "logout": "Logout",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "search": "Search",
+    "filter": "Filter",
+    "refresh": "Refresh",
+    "download": "Download",
+    "upload": "Upload",
+    "submit": "Submit",
+    "reset": "Reset"
+  },
+  "logout": {
+    "error": "Logout failed. Please try again.",
+    "loading": "Logging out...",
+    "confirm": {
+      "title": "Confirm Logout",
+      "description": "Are you sure you want to log out? You will need to sign in again to access your account."
+    }
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "online": "Online",
+    "offline": "Offline",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info"
+  },
+  "time": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "thisWeek": "This Week",
+    "thisMonth": "This Month",
+    "lastMonth": "Last Month",
+    "greeting": {
+      "hello": "Hello",
+      "morning": "Good morning",
+      "afternoon": "Good afternoon",
+      "evening": "Good evening"
+    }
+  },
+  "user": {
+    "fallbackName": "User",
+    "profile": "Profile",
+    "account": "Account"
+  },
+  "forms": {
+    "required": "This field is required",
+    "invalid": "Invalid value",
+    "tooShort": "Too short",
+    "tooLong": "Too long"
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "system": "System",
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "english": "English",
+    "chinese": "中文",
+    "switchTo": "Switch to {{language}}"
+  }
+}

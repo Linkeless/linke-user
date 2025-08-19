@@ -1,0 +1,127 @@
+{
+  "title": "Dashboard",
+  "welcome": {
+    "serviceStatus": "Your service is active and running smoothly.",
+    "greeting": {
+      "withName": "{{greeting}}, {{name}}!"
+    }
+  },
+  "sections": {
+    "serviceStatus": {
+      "title": "Service Status",
+      "description": "Monitor your subscription and usage statistics."
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "description": "Your latest interactions and updates.",
+      "noActivity": "No recent activity",
+      "noActivityDescription": "Your activity will appear here as you use the platform."
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "description": "Manage your service and account settings."
+    }
+  },
+  "cards": {
+    "downloadConfig": {
+      "title": "Download Config",
+      "description": "Download Clash or other client configurations."
+    },
+    "mySubscription": {
+      "title": "My Subscription",
+      "description": "View plan details and upgrade options."
+    },
+    "nodeList": {
+      "title": "Node List",
+      "description": "View available servers and their status."
+    },
+    "usageDetails": {
+      "title": "Usage Details",
+      "description": "View detailed traffic and usage statistics."
+    },
+    "getSupport": {
+      "title": "Get Support",
+      "description": "Contact support or browse help articles."
+    },
+    "accountSettings": {
+      "title": "Account Settings",
+      "description": "Manage your profile and preferences."
+    }
+  },
+  "errors": {
+    "notAuthenticated": "User not authenticated",
+    "loadFailed": "Failed to load data",
+    "profileLoadFailed": "Failed to fetch user profile",
+    "subscriptionLoadFailed": "Failed to load subscription data",
+    "statsLoadFailed": "Failed to load statistics",
+    "statusCheckFailed": "Failed to check subscription status",
+    "dashboardLoadFailed": "Failed to load dashboard data",
+    "dataUnavailable": "Data unavailable",
+    "loginRequired": "Please login to view data",
+    "statisticsLoadFailed": "Failed to load statistics"
+  },
+  "subscription": {
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "expired": "Expired",
+      "paused": "Paused",
+      "trial": "Trial",
+      "cancelled": "Cancelled",
+      "unknown": "Unknown"
+    },
+    "messages": {
+      "noSubscription": "No active subscription found",
+      "expired": "Your subscription has expired. Please renew to continue service.",
+      "paused": "Your service is currently paused.",
+      "notActive": "Your service is not currently active.",
+      "unavailable": "profile data unavailable",
+      "statusUnavailable": "Unable to load service status",
+      "loginToView": "Please login to view your service status",
+      "planActive": "service is active and running smoothly",
+      "statusAvailable": "service status is available"
+    }
+  },
+  "service": {
+    "operational": "Service operational",
+    "notActive": "Service not active",
+    "notConnected": "Not Connected",
+    "noService": "No Service",
+    "subscriptionExpired": "Subscription expired",
+    "subscriptionExpires": "Subscription expires",
+    "activePlan": "plan",
+    "noActivePlan": "No active plan"
+  },
+  "stats": {
+    "totalUsage": "Total Usage",
+    "remainingQuota": "Remaining Quota",
+    "activeNodes": "Active Nodes",
+    "subscriptionStatus": "Subscription Status",
+    "downloadSpeed": "Download Speed",
+    "currentSpeed": "Current speed",
+    "serviceStatus": "Service Status",
+    "connected": "Connected",
+    "serviceActive": "Service active",
+    "supportTickets": "Support Tickets",
+    "openRequests": "Open requests",
+    "noData": "No Data",
+    "quickStats": {
+      "dataUsage": {
+        "title": "Data Usage",
+        "description": "Used this month"
+      },
+      "connectionStatus": {
+        "title": "Connection Status",
+        "description": "Service operational"
+      },
+      "daysRemaining": {
+        "title": "Days Remaining",
+        "description": "Subscription expires"
+      },
+      "activeNodes": {
+        "title": "Service Status",
+        "description": "Current service status"
+      }
+    }
+  }
+}

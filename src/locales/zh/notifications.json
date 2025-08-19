@@ -1,0 +1,20 @@
+{
+  "title": "通知",
+  "errors": {
+    "fetchFailed": "获取通知失败"
+  },
+  "mock": {
+    "welcome": {
+      "title": "欢迎来到 Linke",
+      "message": "您的账户已成功创建！"
+    },
+    "serviceUpdate": {
+      "title": "服务更新",
+      "message": "我们已升级服务器以提供更好的性能。"
+    },
+    "paymentReminder": {
+      "title": "付款提醒",
+      "message": "您的订阅将在 7 天后到期。"
+    }
+  }
+}

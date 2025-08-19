@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CORS Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      .test-section {
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      .result {
+        margin-top: 15px;
+        padding: 15px;
+        background-color: #f4f4f4;
+        border-radius: 5px;
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+      .success {
+        background-color: #d4edda;
+        color: #155724;
+      }
+      .error {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CORS Configuration Test</h1>
+
+    <div class="test-section">
+      <h2>1. Direct Backend Request (Will fail due to CORS)</h2>
+      <button onclick="testDirectBackend()">Test Direct Backend</button>
+      <div id="directResult"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>2. Proxied Request (Should work)</h2>
+      <button onclick="testProxied()">Test Proxied Request</button>
+      <div id="proxiedResult"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>3. OAuth URL Request (Proxied)</h2>
+      <button onclick="testOAuthUrl()">Test OAuth URL Request</button>
+      <div id="oauthResult"></div>
+    </div>
+
+    <script>
+      async function testDirectBackend() {
+        const resultDiv = document.getElementById('directResult');
+        resultDiv.innerHTML = 'Testing...';
+
+        try {
+          const response = await fetch('http://localhost:8080/api/v1/health', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+          });
+
+          const data = await response.text();
+          resultDiv.innerHTML = `<div class="result success">
+✅ Success! 
+Status: ${response.status}
+Response: ${data}
+</div>`;
+        } catch (error) {
+          resultDiv.innerHTML = `<div class="result error">
+❌ CORS Error (Expected)
+Error: ${error.message}
+This is expected - direct backend requests are blocked by CORS
+</div>`;
+        }
+      }
+
+      async function testProxied() {
+        const resultDiv = document.getElementById('proxiedResult');
+        resultDiv.innerHTML = 'Testing...';
+
+        try {
+          const response = await fetch('/api/v1/health', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+          });
+
+          const data = await response.text();
+          resultDiv.innerHTML = `<div class="result success">
+✅ Success! Proxy is working!
+Status: ${response.status}
+Response: ${data}
+</div>`;
+        } catch (error) {
+          resultDiv.innerHTML = `<div class="result error">
+❌ Proxy Error
+Error: ${error.message}
+Check if backend is running on http://localhost:8080
+</div>`;
+        }
+      }
+
+      async function testOAuthUrl() {
+        const resultDiv = document.getElementById('oauthResult');
+        resultDiv.innerHTML = 'Testing...';
+
+        try {
+          const response = await fetch('/api/v1/auth/url', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              provider: 'google',
+              redirect_uri: window.location.origin + '/auth/callback',
+            }),
+            credentials: 'include',
+          });
+
+          const data = await response.json();
+          resultDiv.innerHTML = `<div class="result success">
+✅ OAuth URL Request Success!
+Status: ${response.status}
+Response: ${JSON.stringify(data, null, 2)}
+</div>`;
+        } catch (error) {
+          resultDiv.innerHTML = `<div class="result error">
+❌ OAuth URL Request Failed
+Error: ${error.message}
+Check if backend OAuth is configured properly
+</div>`;
+        }
+      }
+
+      // Test proxy on page load
+      window.addEventListener('load', () => {
+        console.log('Page loaded. Ready to test CORS configuration.');
+        console.log(
+          'Development server should be running on http://localhost:5174'
+        );
+        console.log('Backend should be running on http://localhost:8080');
+      });
+    </script>
+  </body>
+</html>

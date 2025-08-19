@@ -1,0 +1,127 @@
+{
+  "title": "仪表板",
+  "welcome": {
+    "serviceStatus": "您的服务正常运行中。",
+    "greeting": {
+      "withName": "{{greeting}}，{{name}}！"
+    }
+  },
+  "sections": {
+    "serviceStatus": {
+      "title": "服务状态",
+      "description": "监控您的订阅和使用统计信息。"
+    },
+    "recentActivity": {
+      "title": "最近活动",
+      "description": "您最近的交互和更新记录。",
+      "noActivity": "暂无最近活动",
+      "noActivityDescription": "当您使用平台时，您的活动记录将显示在这里。"
+    },
+    "quickActions": {
+      "title": "快捷操作",
+      "description": "管理您的服务和账户设置。"
+    }
+  },
+  "cards": {
+    "downloadConfig": {
+      "title": "下载配置",
+      "description": "下载 Clash 或其他客户端配置文件。"
+    },
+    "mySubscription": {
+      "title": "我的订阅",
+      "description": "查看套餐详情和升级选项。"
+    },
+    "nodeList": {
+      "title": "节点列表",
+      "description": "查看可用服务器及其状态。"
+    },
+    "usageDetails": {
+      "title": "使用详情",
+      "description": "查看详细的流量和使用统计信息。"
+    },
+    "getSupport": {
+      "title": "获取支持",
+      "description": "联系客服或浏览帮助文档。"
+    },
+    "accountSettings": {
+      "title": "账户设置",
+      "description": "管理您的个人资料和偏好设置。"
+    }
+  },
+  "errors": {
+    "notAuthenticated": "用户未认证",
+    "loadFailed": "数据加载失败",
+    "profileLoadFailed": "获取用户资料失败",
+    "subscriptionLoadFailed": "订阅数据加载失败",
+    "statsLoadFailed": "统计数据加载失败",
+    "statusCheckFailed": "订阅状态检查失败",
+    "dashboardLoadFailed": "仪表板数据加载失败",
+    "dataUnavailable": "数据不可用",
+    "loginRequired": "请登录查看数据",
+    "statisticsLoadFailed": "统计信息加载失败"
+  },
+  "subscription": {
+    "status": {
+      "active": "活跃",
+      "inactive": "未激活",
+      "expired": "已过期",
+      "paused": "已暂停",
+      "trial": "试用",
+      "cancelled": "已取消",
+      "unknown": "未知"
+    },
+    "messages": {
+      "noSubscription": "未找到活跃订阅",
+      "expired": "您的订阅已过期，请续费以继续使用服务。",
+      "paused": "您的服务当前已暂停。",
+      "notActive": "您的服务当前未激活。",
+      "unavailable": "用户资料数据不可用",
+      "statusUnavailable": "无法加载服务状态",
+      "loginToView": "请登录查看您的服务状态",
+      "planActive": "服务运行正常",
+      "statusAvailable": "服务状态可用"
+    }
+  },
+  "service": {
+    "operational": "服务运行正常",
+    "notActive": "服务未激活",
+    "notConnected": "未连接",
+    "noService": "无服务",
+    "subscriptionExpired": "订阅已过期",
+    "subscriptionExpires": "订阅到期",
+    "activePlan": "套餐",
+    "noActivePlan": "无有效套餐"
+  },
+  "stats": {
+    "totalUsage": "总使用量",
+    "remainingQuota": "剩余配额",
+    "activeNodes": "活跃节点",
+    "subscriptionStatus": "订阅状态",
+    "downloadSpeed": "下载速度",
+    "currentSpeed": "当前速度",
+    "serviceStatus": "服务状态",
+    "connected": "已连接",
+    "serviceActive": "服务运行中",
+    "supportTickets": "支持工单",
+    "openRequests": "待处理请求",
+    "noData": "无数据",
+    "quickStats": {
+      "dataUsage": {
+        "title": "数据使用量",
+        "description": "本月已使用"
+      },
+      "connectionStatus": {
+        "title": "连接状态",
+        "description": "服务运行正常"
+      },
+      "daysRemaining": {
+        "title": "剩余天数",
+        "description": "订阅到期"
+      },
+      "activeNodes": {
+        "title": "服务状态",
+        "description": "当前服务状态"
+      }
+    }
+  }
+}

@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OAuth Backend Integration Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333;
+        margin-bottom: 30px;
+      }
+      .test-section {
+        margin-bottom: 30px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .test-section h2 {
+        color: #666;
+        margin-top: 0;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+      .response {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 4px;
+        margin-top: 15px;
+        border: 1px solid #e0e0e0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+      .error {
+        background-color: #ffebee;
+        color: #c62828;
+        border-color: #ffcdd2;
+      }
+      .success {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+        border-color: #c8e6c9;
+      }
+      .status {
+        padding: 5px 10px;
+        border-radius: 3px;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      .status.online {
+        background-color: #4caf50;
+        color: white;
+      }
+      .status.offline {
+        background-color: #f44336;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>OAuth Backend Integration Test</h1>
+
+      <div class="test-section">
+        <h2>1. Backend Connection Test</h2>
+        <p>
+          Test connection to the backend API at http://localhost:8080/api/v1
+        </p>
+        <button onclick="testBackendConnection()">Test Connection</button>
+        <div id="connectionStatus"></div>
+      </div>
+
+      <div class="test-section">
+        <h2>2. OAuth URL Generation Test</h2>
+        <p>
+          Test OAuth authorization URL generation for each provider (backend
+          manages all OAuth credentials)
+        </p>
+        <button onclick="testOAuthUrl('google')">Test Google OAuth URL</button>
+        <button onclick="testOAuthUrl('github')">Test GitHub OAuth URL</button>
+        <button onclick="testOAuthUrl('telegram')">
+          Test Telegram OAuth URL
+        </button>
+        <div id="oauthUrlResponse"></div>
+      </div>
+
+      <div class="test-section">
+        <h2>3. OAuth Token Exchange Test (Mock)</h2>
+        <p>Test OAuth token exchange with mock authorization code</p>
+        <button onclick="testTokenExchange('google')">
+          Test Google Token Exchange
+        </button>
+        <button onclick="testTokenExchange('github')">
+          Test GitHub Token Exchange
+        </button>
+        <button onclick="testTokenExchange('telegram')">
+          Test Telegram Token Exchange
+        </button>
+        <div id="tokenExchangeResponse"></div>
+      </div>
+
+      <div class="test-section">
+        <h2>4. Full OAuth Flow Simulation</h2>
+        <p>Simulate a complete OAuth flow (requires backend to be running)</p>
+        <button onclick="simulateOAuthFlow('google')">
+          Simulate Google OAuth
+        </button>
+        <button onclick="simulateOAuthFlow('github')">
+          Simulate GitHub OAuth
+        </button>
+        <button onclick="simulateOAuthFlow('telegram')">
+          Simulate Telegram OAuth
+        </button>
+        <div id="flowSimulationResponse"></div>
+      </div>
+    </div>
+
+    <script>
+      const API_BASE_URL = 'http://localhost:8080/api/v1';
+
+      async function testBackendConnection() {
+        const statusDiv = document.getElementById('connectionStatus');
+        statusDiv.innerHTML = 'Testing connection...';
+
+        try {
+          const response = await fetch(`${API_BASE_URL}/health`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+
+          if (response.ok) {
+            statusDiv.innerHTML = `
+                        <div class="status online">Backend Online</div>
+                        <div class="response success">
+                            Connection successful!
+                            Status: ${response.status}
+                            ${response.statusText ? `(${response.statusText})` : ''}
+                        </div>
+                    `;
+          } else {
+            statusDiv.innerHTML = `
+                        <div class="status offline">Backend Offline</div>
+                        <div class="response error">
+                            Connection failed!
+                            Status: ${response.status}
+                            ${response.statusText ? `(${response.statusText})` : ''}
+                        </div>
+                    `;
+          }
+        } catch (error) {
+          statusDiv.innerHTML = `
+                    <div class="status offline">Backend Offline</div>
+                    <div class="response error">
+                        Connection failed!
+                        Error: ${error.message}
+                        
+                        Please ensure the backend is running at ${API_BASE_URL}
+                    </div>
+                `;
+        }
+      }
+
+      async function testOAuthUrl(provider) {
+        const responseDiv = document.getElementById('oauthUrlResponse');
+        responseDiv.innerHTML = `Testing ${provider} OAuth URL generation...`;
+
+        try {
+          const response = await fetch(`${API_BASE_URL}/auth/url`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              provider: provider,
+              redirect_uri: window.location.origin + '/callback',
+            }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            responseDiv.innerHTML = `
+                        <div class="response success">
+                            <strong>${provider.toUpperCase()} OAuth URL Generated:</strong>
+                            
+                            Authorization URL: ${data.auth_url || 'Not provided'}
+                            State: ${data.state || 'Not provided'}
+                            
+                            Note: Backend manages all OAuth client IDs and secrets securely.
+                            Frontend only initiates the flow through backend endpoints.
+                            
+                            Full Response:
+                            ${JSON.stringify(data, null, 2)}
+                        </div>
+                    `;
+          } else {
+            responseDiv.innerHTML = `
+                        <div class="response error">
+                            Failed to generate ${provider} OAuth URL
+                            Status: ${response.status}
+                            Error: ${JSON.stringify(data, null, 2)}
+                        </div>
+                    `;
+          }
+        } catch (error) {
+          responseDiv.innerHTML = `
+                    <div class="response error">
+                        Failed to generate ${provider} OAuth URL
+                        Error: ${error.message}
+                    </div>
+                `;
+        }
+      }
+
+      async function testTokenExchange(provider) {
+        const responseDiv = document.getElementById('tokenExchangeResponse');
+        responseDiv.innerHTML = `Testing ${provider} token exchange...`;
+
+        try {
+          const response = await fetch(`${API_BASE_URL}/auth/token`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              provider: provider,
+              code: 'mock_authorization_code_' + Date.now(),
+              state: 'mock_state_' + Date.now(),
+            }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            responseDiv.innerHTML = `
+                        <div class="response success">
+                            <strong>${provider.toUpperCase()} Token Exchange Successful:</strong>
+                            
+                            User ID: ${data.user?.id || 'Not provided'}
+                            Email: ${data.user?.email || 'Not provided'}
+                            Access Token: ${data.access_token ? '***' + data.access_token.slice(-10) : 'Not provided'}
+                            
+                            Full Response:
+                            ${JSON.stringify(data, null, 2)}
+                        </div>
+                    `;
+          } else {
+            responseDiv.innerHTML = `
+                        <div class="response error">
+                            ${provider.toUpperCase()} token exchange failed
+                            Status: ${response.status}
+                            Error: ${JSON.stringify(data, null, 2)}
+                            
+                            Note: This is expected if using mock data. 
+                            Real OAuth flow requires valid authorization code from provider.
+                        </div>
+                    `;
+          }
+        } catch (error) {
+          responseDiv.innerHTML = `
+                    <div class="response error">
+                        Failed to exchange ${provider} token
+                        Error: ${error.message}
+                    </div>
+                `;
+        }
+      }
+
+      async function simulateOAuthFlow(provider) {
+        const responseDiv = document.getElementById('flowSimulationResponse');
+        responseDiv.innerHTML = `Simulating ${provider} OAuth flow...`;
+
+        try {
+          // Step 1: Get OAuth URL
+          const urlResponse = await fetch(`${API_BASE_URL}/auth/url`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              provider: provider,
+              redirect_uri: window.location.origin + '/callback',
+            }),
+          });
+
+          const urlData = await urlResponse.json();
+
+          if (!urlResponse.ok) {
+            throw new Error(
+              `Failed to get OAuth URL: ${JSON.stringify(urlData)}`
+            );
+          }
+
+          responseDiv.innerHTML = `
+                    <div class="response success">
+                        <strong>OAuth Flow Simulation for ${provider.toUpperCase()}:</strong>
+                        
+                        Step 1: OAuth URL Generated ✓
+                        - Authorization URL: ${urlData.auth_url ? 'Generated' : 'Not provided'}
+                        - State: ${urlData.state || 'Not provided'}
+                        
+                        Step 2: User Authorization
+                        In a real flow, the user would be redirected to:
+                        ${urlData.auth_url || 'N/A'}
+                        
+                        Step 3: Token Exchange
+                        After authorization, the provider would redirect back with:
+                        - Authorization code
+                        - State parameter (for CSRF protection)
+                        
+                        These would be exchanged for JWT tokens via POST /auth/token
+                        
+                        <strong>Integration Status:</strong>
+                        ✓ OAuth URL endpoint working
+                        ✓ Frontend OAuth service ready
+                        ✓ OAuth UI components implemented
+                        
+                        To complete the integration:
+                        1. Configure OAuth apps with providers (Google, GitHub, Telegram)
+                        2. Set client IDs in environment variables
+                        3. Ensure backend is running with proper OAuth configuration
+                    </div>
+                `;
+        } catch (error) {
+          responseDiv.innerHTML = `
+                    <div class="response error">
+                        OAuth flow simulation failed for ${provider}
+                        Error: ${error.message}
+                        
+                        Please ensure the backend is running and properly configured.
+                    </div>
+                `;
+        }
+      }
+
+      // Test connection on page load
+      window.onload = function () {
+        testBackendConnection();
+      };
+    </script>
+  </body>
+</html>

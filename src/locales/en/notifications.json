@@ -1,0 +1,20 @@
+{
+  "title": "Notifications",
+  "errors": {
+    "fetchFailed": "Failed to fetch notifications"
+  },
+  "mock": {
+    "welcome": {
+      "title": "Welcome to Linke",
+      "message": "Your account has been successfully created!"
+    },
+    "serviceUpdate": {
+      "title": "Service Update",
+      "message": "We have upgraded our servers for better performance."
+    },
+    "paymentReminder": {
+      "title": "Payment Reminder",
+      "message": "Your subscription will expire in 7 days."
+    }
+  }
+}

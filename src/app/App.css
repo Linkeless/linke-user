@@ -1,0 +1,13 @@
+/* App-specific styles */
+
+/* Code highlighting for inline code */
+code {
+  background-color: hsl(var(--muted));
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family:
+    ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo,
+    monospace;
+  font-size: 0.875em;
+  color: hsl(var(--foreground));
+}

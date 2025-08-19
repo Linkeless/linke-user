@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test App</title>
+  </head>
+  <body>
+    <h1>Testing if the app loads</h1>
+    <iframe
+      src="http://localhost:5175"
+      width="100%"
+      height="600"
+      style="border: 1px solid #ccc"
+    ></iframe>
+
+    <script>
+      // Check if the app loads
+      setTimeout(() => {
+        console.log('Checking app status...');
+        fetch('http://localhost:5175')
+          .then(res => res.text())
+          .then(text => {
+            console.log('App HTML loaded:', text.substring(0, 200));
+          })
+          .catch(err => console.error('Error loading app:', err));
+      }, 1000);
+    </script>
+  </body>
+</html>

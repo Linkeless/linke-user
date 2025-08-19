@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clear Storage</title>
+  </head>
+  <body>
+    <h1>Clear Local Storage</h1>
+    <button onclick="clearStorage()">Clear Storage and Reload App</button>
+    <pre id="output"></pre>
+
+    <script>
+      function clearStorage() {
+        // Clear all storage for localhost:5175
+        localStorage.clear();
+        sessionStorage.clear();
+
+        // Clear specific auth-related keys
+        localStorage.removeItem('auth-storage');
+
+        document.getElementById('output').textContent =
+          'Storage cleared! Redirecting to app...';
+
+        setTimeout(() => {
+          window.location.href = 'http://localhost:5175';
+        }, 1000);
+      }
+
+      // Show current storage
+      document.getElementById('output').textContent =
+        'Current localStorage:\n' + JSON.stringify(localStorage, null, 2);
+    </script>
+  </body>
+</html>

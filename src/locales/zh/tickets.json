@@ -1,0 +1,82 @@
+{
+  "title": "工单支持",
+  "subtitle": "管理您的支持请求并从我们的团队获得帮助",
+  "createTicket": "创建工单",
+  "ticketDetails": "工单详情",
+  "filters": {
+    "all": "全部",
+    "status": "状态",
+    "priority": "优先级"
+  },
+  "status": {
+    "open": "待处理",
+    "in_progress": "处理中",
+    "resolved": "已解决",
+    "closed": "已关闭"
+  },
+  "priority": {
+    "low": "低",
+    "normal": "普通",
+    "high": "高",
+    "urgent": "紧急"
+  },
+  "category": {
+    "technical": "技术问题",
+    "billing": "账单问题",
+    "subscription": "订阅问题",
+    "general": "常规问题",
+    "other": "其他"
+  },
+  "actions": {
+    "reply": "回复",
+    "close": "关闭工单",
+    "create": "提交工单",
+    "cancel": "取消",
+    "send": "发送",
+    "back": "返回工单列表",
+    "search": "搜索工单...",
+    "retry": "重试"
+  },
+  "form": {
+    "title": "标题",
+    "titlePlaceholder": "简要描述您的问题",
+    "description": "问题描述",
+    "descriptionPlaceholder": "请详细描述您遇到的问题",
+    "category": "分类",
+    "categoryPlaceholder": "选择分类",
+    "priority": "优先级",
+    "priorityPlaceholder": "选择优先级",
+    "replyPlaceholder": "在此输入您的回复..."
+  },
+  "messages": {
+    "noTickets": "暂无工单",
+    "createFirst": "创建您的第一个支持工单",
+    "ticketCreated": "工单创建成功",
+    "replySent": "回复发送成功",
+    "ticketClosed": "工单已关闭",
+    "loading": "加载中...",
+    "confirmClose": "确定要关闭此工单吗？",
+    "cannotReply": "此工单已关闭，无法添加新回复",
+    "noMatchingTickets": "没有符合搜索条件的工单",
+    "createFirstTicket": "创建您的第一个支持工单以获得帮助",
+    "totalTickets": "总计：{{count}} 个工单",
+    "showingTickets": "显示 {{showing}} / {{total}} 个工单"
+  },
+  "errors": {
+    "loadFailed": "加载工单失败",
+    "createFailed": "创建工单失败",
+    "replyFailed": "发送回复失败",
+    "closeFailed": "关闭工单失败",
+    "generic": "发生错误，请重试",
+    "notFound": "工单不存在"
+  },
+  "labels": {
+    "ticketNumber": "工单编号",
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间",
+    "lastReply": "最后回复",
+    "messages": "消息",
+    "you": "您",
+    "support": "客服"
+  }
+}

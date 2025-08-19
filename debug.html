@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debug Page</title>
+  </head>
+  <body>
+    <h1>Debug Console</h1>
+    <button onclick="checkApp()">Check App Status</button>
+    <button onclick="openApp()">Open App in New Window</button>
+    <pre id="log"></pre>
+
+    <h2>App Frame:</h2>
+    <iframe
+      id="appFrame"
+      src="http://localhost:5175"
+      width="100%"
+      height="400"
+      style="border: 2px solid #333"
+    ></iframe>
+
+    <script>
+      const log = document.getElementById('log');
+
+      function addLog(msg) {
+        const time = new Date().toLocaleTimeString();
+        log.textContent += `[${time}] ${msg}\n`;
+      }
+
+      function checkApp() {
+        fetch('http://localhost:5175')
+          .then(res => res.text())
+          .then(html => {
+            addLog('HTML loaded successfully');
+            addLog('HTML length: ' + html.length);
+            if (html.includes('root')) {
+              addLog('✓ Root element found');
+            }
+            if (html.includes('main.tsx')) {
+              addLog('✓ main.tsx script tag found');
+            }
+          })
+          .catch(err => addLog('Error: ' + err));
+
+        // Try to access the iframe content
+        try {
+          const iframe = document.getElementById('appFrame');
+          const iframeDoc =
+            iframe.contentDocument || iframe.contentWindow.document;
+          const rootEl = iframeDoc.getElementById('root');
+          if (rootEl) {
+            addLog(
+              '✓ Root element in iframe: ' + rootEl.innerHTML.substring(0, 100)
+            );
+          } else {
+            addLog('✗ No root element in iframe');
+          }
+        } catch (e) {
+          addLog('Cannot access iframe content: ' + e.message);
+        }
+      }
+
+      function openApp() {
+        window.open('http://localhost:5175', '_blank');
+      }
+
+      // Listen for messages from iframe
+      window.addEventListener('message', e => {
+        if (e.origin === 'http://localhost:5175') {
+          addLog('Message from app: ' + e.data);
+        }
+      });
+
+      // Initial check
+      setTimeout(checkApp, 1000);
+    </script>
+  </body>
+</html>

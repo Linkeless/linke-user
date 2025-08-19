@@ -1,0 +1,77 @@
+{
+  "app": {
+    "name": "Linke",
+    "title": "Linke 用户门户"
+  },
+  "actions": {
+    "login": "登录",
+    "logout": "退出登录",
+    "save": "保存",
+    "cancel": "取消",
+    "confirm": "确认",
+    "delete": "删除",
+    "edit": "编辑",
+    "add": "添加",
+    "search": "搜索",
+    "filter": "筛选",
+    "refresh": "刷新",
+    "download": "下载",
+    "upload": "上传",
+    "submit": "提交",
+    "reset": "重置"
+  },
+  "logout": {
+    "error": "退出登录失败，请重试。",
+    "loading": "正在退出登录...",
+    "confirm": {
+      "title": "确认退出登录",
+      "description": "您确定要退出登录吗？您需要重新登录才能访问您的账户。"
+    }
+  },
+  "status": {
+    "active": "活跃",
+    "inactive": "不活跃",
+    "online": "在线",
+    "offline": "离线",
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "warning": "警告",
+    "info": "信息"
+  },
+  "time": {
+    "today": "今天",
+    "yesterday": "昨天",
+    "thisWeek": "本周",
+    "thisMonth": "本月",
+    "lastMonth": "上月",
+    "greeting": {
+      "hello": "您好",
+      "morning": "早上好",
+      "afternoon": "下午好",
+      "evening": "晚上好"
+    }
+  },
+  "user": {
+    "fallbackName": "用户",
+    "profile": "个人资料",
+    "account": "账户"
+  },
+  "forms": {
+    "required": "此字段为必填项",
+    "invalid": "无效值",
+    "tooShort": "太短",
+    "tooLong": "太长"
+  },
+  "theme": {
+    "light": "浅色模式",
+    "dark": "深色模式",
+    "system": "跟随系统",
+    "toggle": "切换主题"
+  },
+  "language": {
+    "english": "English",
+    "chinese": "中文",
+    "switchTo": "切换到{{language}}"
+  }
+}

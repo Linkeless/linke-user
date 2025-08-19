@@ -1,0 +1,82 @@
+{
+  "title": "Support Tickets",
+  "subtitle": "Manage your support requests and get help from our team",
+  "createTicket": "Create Ticket",
+  "ticketDetails": "Ticket Details",
+  "filters": {
+    "all": "All",
+    "status": "Status",
+    "priority": "Priority"
+  },
+  "status": {
+    "open": "Open",
+    "in_progress": "In Progress",
+    "resolved": "Resolved",
+    "closed": "Closed"
+  },
+  "priority": {
+    "low": "Low",
+    "normal": "Normal",
+    "high": "High",
+    "urgent": "Urgent"
+  },
+  "category": {
+    "technical": "Technical",
+    "billing": "Billing",
+    "subscription": "Subscription",
+    "general": "General",
+    "other": "Other"
+  },
+  "actions": {
+    "reply": "Reply",
+    "close": "Close Ticket",
+    "create": "Submit Ticket",
+    "cancel": "Cancel",
+    "send": "Send",
+    "back": "Back to Tickets",
+    "search": "Search tickets...",
+    "retry": "Retry"
+  },
+  "form": {
+    "title": "Title",
+    "titlePlaceholder": "Brief description of your issue",
+    "description": "Description",
+    "descriptionPlaceholder": "Please describe your issue in detail",
+    "category": "Category",
+    "categoryPlaceholder": "Select a category",
+    "priority": "Priority",
+    "priorityPlaceholder": "Select priority",
+    "replyPlaceholder": "Type your message here..."
+  },
+  "messages": {
+    "noTickets": "No tickets found",
+    "createFirst": "Create your first support ticket",
+    "ticketCreated": "Ticket created successfully",
+    "replySent": "Reply sent successfully",
+    "ticketClosed": "Ticket closed successfully",
+    "loading": "Loading...",
+    "confirmClose": "Are you sure you want to close this ticket?",
+    "cannotReply": "This ticket is closed and cannot accept new replies",
+    "noMatchingTickets": "No tickets match your search criteria",
+    "createFirstTicket": "Create your first support ticket to get help",
+    "totalTickets": "Total: {{count}} tickets",
+    "showingTickets": "Showing {{showing}} of {{total}} tickets"
+  },
+  "errors": {
+    "loadFailed": "Failed to load tickets",
+    "createFailed": "Failed to create ticket",
+    "replyFailed": "Failed to send reply",
+    "closeFailed": "Failed to close ticket",
+    "generic": "An error occurred. Please try again.",
+    "notFound": "Ticket not found"
+  },
+  "labels": {
+    "ticketNumber": "Ticket #",
+    "createdAt": "Created",
+    "updatedAt": "Updated",
+    "lastReply": "Last Reply",
+    "messages": "Messages",
+    "you": "You",
+    "support": "Support"
+  }
+}

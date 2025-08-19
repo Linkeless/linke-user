@@ -1,0 +1,149 @@
+{
+  "title": "订阅管理",
+  "mySubscriptions": "我的订阅",
+  "planSelection": "套餐选择",
+  "subscriptionDetails": "订阅详情",
+  "noSubscriptions": "暂无订阅",
+  "status": {
+    "active": "活跃",
+    "paused": "已暂停",
+    "cancelled": "已取消",
+    "expired": "已过期",
+    "trial": "试用"
+  },
+  "actions": {
+    "viewDetails": "查看详情",
+    "renewNow": "立即续费",
+    "downloadConfig": "下载配置",
+    "selectPlan": "选择套餐",
+    "buyNow": "立即购买",
+    "choosePlan": "选择套餐",
+    "selected": "已选择",
+    "back": "返回",
+    "backToSubscriptions": "返回订阅列表",
+    "tryAgain": "重试",
+    "refresh": "刷新",
+    "clearFilters": "清除筛选",
+    "clearAllFilters": "清除所有筛选"
+  },
+  "labels": {
+    "plan": "套餐",
+    "price": "价格",
+    "billingCycle": "计费周期",
+    "dataUsage": "流量使用",
+    "trafficStats": "流量统计",
+    "renewalDate": "续费日期",
+    "expiryDate": "到期日期",
+    "daysRemaining": "剩余天数",
+    "autoRenewal": "自动续费",
+    "features": "功能特性",
+    "unlimited": "无限",
+    "servers": "服务器",
+    "devices": "设备",
+    "speed": "速度",
+    "data": "流量",
+    "billingInfo": "账单信息",
+    "planDetails": "套餐详情",
+    "currentPeriod": "当前周期",
+    "nextBilling": "下次扣费",
+    "endDate": "结束日期",
+    "enabled": "已启用",
+    "disabled": "已禁用",
+    "cancellation": "取消",
+    "endsAtPeriodEnd": "周期结束时取消",
+    "planId": "套餐ID",
+    "subscriptionId": "订阅ID",
+    "options": "选项",
+    "currency": "货币",
+    "viewMode": "查看模式",
+    "grid": "网格",
+    "compare": "对比",
+    "filters": "筛选",
+    "status": "状态",
+    "search": "搜索",
+    "usagePercent": "已使用 {{percent}}%",
+    "usage": "使用率",
+    "resetsOn": "重置于",
+    "lastUpdated": "最后更新",
+    "day": "天",
+    "days": "天"
+  },
+  "billing": {
+    "monthly": "月付",
+    "yearly": "年付",
+    "quarterly": "季付",
+    "weekly": "周付",
+    "daily": "日付",
+    "perMonth": "每月",
+    "perYear": "每年",
+    "savePercent": "节省 {{percent}}%",
+    "mostPopular": "最受欢迎",
+    "recommended": "推荐"
+  },
+  "usage": {
+    "used": "已使用",
+    "remaining": "剩余",
+    "total": "总量",
+    "unlimited": "无限流量",
+    "resetDate": "重置于 {{date}}",
+    "currentPeriod": "当前周期",
+    "noUsageData": "暂无使用数据"
+  },
+  "config": {
+    "downloadTitle": "下载配置",
+    "downloadDescription": "下载 Clash 配置文件用于您的订阅",
+    "clashConfig": "Clash 配置",
+    "downloadSuccess": "配置文件下载成功",
+    "downloadError": "配置文件下载失败"
+  },
+  "empty": {
+    "noSubscriptions": "您还没有任何订阅",
+    "noSubscriptionsDescription": "从我们的可用套餐中选择一个开始使用",
+    "noPlans": "暂无可用套餐",
+    "noPlansDescription": "请稍后查看可用的订阅套餐"
+  },
+  "errors": {
+    "loadFailed": "订阅加载失败",
+    "plansLoadFailed": "套餐加载失败",
+    "detailsLoadFailed": "订阅详情加载失败",
+    "configDownloadFailed": "配置文件下载失败",
+    "genericError": "出现了问题，请重试。"
+  },
+  "filters": {
+    "all": "全部",
+    "active": "活跃",
+    "expired": "已过期",
+    "trial": "试用"
+  },
+  "pagination": {
+    "previous": "上一页",
+    "next": "下一页",
+    "page": "第 {{current}} 页，共 {{total}} 页"
+  },
+  "messages": {
+    "renewSubscription": "续费订阅",
+    "chooseRenewalPlan": "选择套餐以续费您的订阅",
+    "choosePerfectPlan": "选择最适合您需求的套餐",
+    "selectUpToFourPlans": "最多选择4个套餐进行对比",
+    "planComparison": "套餐对比",
+    "allPlans": "所有套餐",
+    "manageAndMonitor": "管理和监控您的活跃订阅",
+    "noMatchingSubscriptions": "没有符合筛选条件的订阅",
+    "tryAdjustingFilters": "请尝试调整筛选条件或搜索关键词",
+    "searchPlaceholder": "按套餐名称或ID搜索...",
+    "invalidSubscription": "无效订阅",
+    "noSubscriptionId": "未提供订阅ID",
+    "loadingSubscriptionInfo": "正在加载订阅信息...",
+    "subscriptionNotFound": "未找到订阅",
+    "detailsAndUsage": "详情和使用情况"
+  },
+  "warnings": {
+    "dataLimitExceeded": "流量限额已超出，服务可能被限速。",
+    "criticalDataRemaining": "紧急：仅剩5%流量。",
+    "warningHighUsage": "警告：已使用80%流量。"
+  },
+  "billing": {
+    "trialDays": "{{days}}天免费试用",
+    "setupFee": "+ {{fee}} 安装费"
+  }
+}

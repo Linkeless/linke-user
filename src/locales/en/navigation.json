@@ -1,0 +1,20 @@
+{
+  "menu": {
+    "dashboard": "Dashboard",
+    "subscriptions": "Subscriptions",
+    "plans": "Plans",
+    "orders": "Orders",
+    "tickets": "Support Tickets",
+    "nodes": "Nodes",
+    "statistics": "Statistics",
+    "support": "Support",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "user": {
+    "welcome": "Welcome",
+    "profile": "User Profile",
+    "account": "Account",
+    "preferences": "Preferences"
+  }
+}

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debug OAuth Buttons</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: #4caf50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      .button:hover {
+        background-color: #45a049;
+      }
+      .test-section {
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      pre {
+        background: #f4f4f4;
+        padding: 10px;
+        border-radius: 3px;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>OAuth Redirect Debug</h1>
+
+    <div class="test-section">
+      <h2>Direct Link Test</h2>
+      <p>
+        These links should redirect directly to the backend OAuth endpoints:
+      </p>
+      <a href="http://localhost:8080/api/v1/auth/google" class="button"
+        >Google OAuth</a
+      >
+      <a href="http://localhost:8080/api/v1/auth/github" class="button"
+        >GitHub OAuth</a
+      >
+      <a href="http://localhost:8080/api/v1/auth/telegram" class="button"
+        >Telegram OAuth</a
+      >
+    </div>
+
+    <div class="test-section">
+      <h2>JavaScript Redirect Test</h2>
+      <p>
+        These buttons use JavaScript to redirect (simulating the app behavior):
+      </p>
+      <button onclick="redirectToOAuth('google')" class="button">
+        Google OAuth (JS)
+      </button>
+      <button onclick="redirectToOAuth('github')" class="button">
+        GitHub OAuth (JS)
+      </button>
+      <button onclick="redirectToOAuth('telegram')" class="button">
+        Telegram OAuth (JS)
+      </button>
+    </div>
+
+    <div class="test-section">
+      <h2>Backend Response Test</h2>
+      <button onclick="testBackend()" class="button">
+        Test Backend OAuth Response
+      </button>
+      <div id="response"></div>
+    </div>
+
+    <script>
+      function redirectToOAuth(provider) {
+        const url = `http://localhost:8080/api/v1/auth/${provider}`;
+        console.log(`Redirecting to: ${url}`);
+        window.location.href = url;
+      }
+
+      async function testBackend() {
+        const responseDiv = document.getElementById('response');
+        responseDiv.innerHTML = 'Testing backend...';
+
+        try {
+          const response = await fetch(
+            'http://localhost:8080/api/v1/auth/google',
+            {
+              method: 'GET',
+              redirect: 'manual', // Don't follow redirects
+            }
+          );
+
+          responseDiv.innerHTML = `
+                    <pre>
+Status: ${response.status}
+Type: ${response.type}
+Headers:
+${Array.from(response.headers.entries())
+  .map(([k, v]) => `  ${k}: ${v}`)
+  .join('\n')}
+                    </pre>
+                `;
+
+          if (response.status === 302 || response.status === 307) {
+            const location = response.headers.get('Location');
+            responseDiv.innerHTML += `<p><strong>Redirect URL:</strong> ${location}</p>`;
+          }
+        } catch (error) {
+          responseDiv.innerHTML = `<pre>Error: ${error.message}</pre>`;
+        }
+      }
+    </script>
+  </body>
+</html>

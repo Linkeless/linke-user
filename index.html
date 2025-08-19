@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Linke User Portal - Comprehensive service management platform"
+    />
+    <meta name="theme-color" content="#000000" />
+    <title>Linke User Portal</title>
+    <!-- Enhanced title support for better SEO and accessibility -->
+    <meta name="application-name" content="Linke User Portal" />
+    <meta
+      property="og:title"
+      content="Linke User Portal - Service Management Platform"
+    />
+    <meta property="og:site_name" content="Linke User Portal" />
+    <meta name="twitter:title" content="Linke User Portal" />
+    <!-- Fallback title for progressive enhancement -->
+    <script>
+      // Ensure title is set correctly before React loads
+      if (!document.title || document.title === '') {
+        document.title = 'Linke User Portal';
+      }
+
+      // Store original title for fallback
+      window.__ORIGINAL_TITLE__ = document.title;
+
+      // Title update fallback for unsupported browsers
+      window.__TITLE_FALLBACK__ = function (newTitle) {
+        try {
+          document.title =
+            newTitle || window.__ORIGINAL_TITLE__ || 'Linke User Portal';
+
+          // Update meta tags for better integration
+          var ogTitle = document.querySelector('meta[property="og:title"]');
+          if (ogTitle) {
+            ogTitle.setAttribute('content', newTitle + ' - Linke User Portal');
+          }
+
+          var twitterTitle = document.querySelector(
+            'meta[name="twitter:title"]'
+          );
+          if (twitterTitle) {
+            twitterTitle.setAttribute(
+              'content',
+              newTitle + ' - Linke User Portal'
+            );
+          }
+        } catch (error) {
+          console.warn('Title update failed:', error);
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          font-family: system-ui;
+        "
+      >
+        <div style="text-align: center">
+          <div style="font-size: 24px; margin-bottom: 10px">Loading...</div>
+          <div style="font-size: 14px; color: #666">
+            If this message persists, check the browser console for errors.
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,149 @@
+{
+  "title": "Subscriptions",
+  "mySubscriptions": "My Subscriptions",
+  "planSelection": "Plan Selection",
+  "subscriptionDetails": "Subscription Details",
+  "noSubscriptions": "No subscriptions found",
+  "status": {
+    "active": "Active",
+    "paused": "Paused",
+    "cancelled": "Cancelled",
+    "expired": "Expired",
+    "trial": "Trial"
+  },
+  "actions": {
+    "viewDetails": "View Details",
+    "renewNow": "Renew Now",
+    "downloadConfig": "Download Config",
+    "selectPlan": "Select Plan",
+    "buyNow": "Buy Now",
+    "choosePlan": "Choose Plan",
+    "selected": "Selected",
+    "back": "Back",
+    "backToSubscriptions": "Back to Subscriptions",
+    "tryAgain": "Try Again",
+    "refresh": "Refresh",
+    "clearFilters": "Clear Filters",
+    "clearAllFilters": "Clear All Filters"
+  },
+  "labels": {
+    "plan": "Plan",
+    "price": "Price",
+    "billingCycle": "Billing Cycle",
+    "dataUsage": "Data Usage",
+    "trafficStats": "Traffic Statistics",
+    "renewalDate": "Renewal Date",
+    "expiryDate": "Expiry Date",
+    "daysRemaining": "Days Remaining",
+    "autoRenewal": "Auto Renewal",
+    "features": "Features",
+    "unlimited": "Unlimited",
+    "servers": "Servers",
+    "devices": "Devices",
+    "speed": "Speed",
+    "data": "Data",
+    "billingInfo": "Billing Information",
+    "planDetails": "Plan Details",
+    "currentPeriod": "Current Period",
+    "nextBilling": "Next Billing",
+    "endDate": "End Date",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "cancellation": "Cancellation",
+    "endsAtPeriodEnd": "Ends at period end",
+    "planId": "Plan ID",
+    "subscriptionId": "Subscription ID",
+    "options": "Options",
+    "currency": "Currency",
+    "viewMode": "View Mode",
+    "grid": "Grid",
+    "compare": "Compare",
+    "filters": "Filters",
+    "status": "Status",
+    "search": "Search",
+    "usagePercent": "{{percent}}% used",
+    "usage": "Usage",
+    "resetsOn": "Resets on",
+    "lastUpdated": "Last updated",
+    "day": "day",
+    "days": "days"
+  },
+  "billing": {
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "quarterly": "Quarterly",
+    "weekly": "Weekly",
+    "daily": "Daily",
+    "perMonth": "per month",
+    "perYear": "per year",
+    "savePercent": "Save {{percent}}%",
+    "mostPopular": "Most Popular",
+    "recommended": "Recommended"
+  },
+  "usage": {
+    "used": "Used",
+    "remaining": "Remaining",
+    "total": "Total",
+    "unlimited": "Unlimited",
+    "resetDate": "Resets on {{date}}",
+    "currentPeriod": "Current Period",
+    "noUsageData": "No usage data available"
+  },
+  "config": {
+    "downloadTitle": "Download Configuration",
+    "downloadDescription": "Download Clash configuration file for your subscription",
+    "clashConfig": "Clash Config",
+    "downloadSuccess": "Configuration downloaded successfully",
+    "downloadError": "Failed to download configuration"
+  },
+  "empty": {
+    "noSubscriptions": "You don't have any subscriptions yet",
+    "noSubscriptionsDescription": "Choose from our available plans to get started",
+    "noPlans": "No plans available",
+    "noPlansDescription": "Please check back later for available subscription plans"
+  },
+  "errors": {
+    "loadFailed": "Failed to load subscriptions",
+    "plansLoadFailed": "Failed to load subscription plans",
+    "detailsLoadFailed": "Failed to load subscription details",
+    "configDownloadFailed": "Failed to download configuration",
+    "genericError": "Something went wrong. Please try again."
+  },
+  "filters": {
+    "all": "All",
+    "active": "Active",
+    "expired": "Expired",
+    "trial": "Trial"
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {{current}} of {{total}}"
+  },
+  "messages": {
+    "renewSubscription": "Renew Subscription",
+    "chooseRenewalPlan": "Choose a plan to renew your subscription",
+    "choosePerfectPlan": "Choose the perfect plan for your needs",
+    "selectUpToFourPlans": "Select up to 4 plans to compare",
+    "planComparison": "Plan Comparison",
+    "allPlans": "All Plans",
+    "manageAndMonitor": "Manage and monitor your active subscriptions",
+    "noMatchingSubscriptions": "No subscriptions match your filters",
+    "tryAdjustingFilters": "Try adjusting your filters or search terms",
+    "searchPlaceholder": "Search by plan name or ID...",
+    "invalidSubscription": "Invalid Subscription",
+    "noSubscriptionId": "No subscription ID provided",
+    "loadingSubscriptionInfo": "Loading subscription information...",
+    "subscriptionNotFound": "Subscription not found",
+    "detailsAndUsage": "details and usage"
+  },
+  "warnings": {
+    "dataLimitExceeded": "Data limit exceeded. Service may be throttled.",
+    "criticalDataRemaining": "Critical: Only 5% of data remaining.",
+    "warningHighUsage": "Warning: 80% of data used."
+  },
+  "billing": {
+    "trialDays": "{{days}} days free trial",
+    "setupFee": "+ {{fee}} setup fee"
+  }
+}

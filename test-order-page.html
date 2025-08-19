@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单模块测试页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        .status {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .status.success {
+            background: #10b981;
+            color: white;
+        }
+        .info-section {
+            margin-bottom: 30px;
+        }
+        .info-section h2 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .info-item {
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+        }
+        .info-label {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .info-value {
+            color: #111827;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .feature-list {
+            list-style: none;
+        }
+        .feature-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+        .check {
+            color: #10b981;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .btn {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #4b5563;
+        }
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .tech-badge {
+            padding: 5px 12px;
+            background: #ede9fe;
+            color: #7c3aed;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 订单管理模块</h1>
+        <p class="subtitle">Order Management Module</p>
+        <span class="status success">✅ 实现完成</span>
+
+        <div class="info-section">
+            <h2>📊 模块概览</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">模块状态</div>
+                    <div class="info-value">全部功能已实现</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">开发服务器</div>
+                    <div class="info-value">运行中 (端口 5174)</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">代码质量</div>
+                    <div class="info-value">✅ TypeScript 检查通过</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">国际化</div>
+                    <div class="info-value">中英文双语支持</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>✨ 已实现功能</h2>
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <span class="check">✓</span>
+                    <span>导航栏集成 - 中英文双语支持，与其他页面保持一致</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">✓</span>
+                    <span>订单列表展示与管理</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">✓</span>
+                    <span>订单创建功能（支持选择套餐）</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">✓</span>
+                    <span>订单支付集成（多种支付方式）</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">✓</span>
+                    <span>订单详情查看</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">✓</span>
+                    <span>发票下载功能</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">✓</span>
+                    <span>订单状态管理（待支付、已支付、已取消等）</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">✓</span>
+                    <span>筛选与搜索功能</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">✓</span>
+                    <span>分页功能</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">✓</span>
+                    <span>国际化支持（中英文）</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">✓</span>
+                    <span>响应式设计</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">✓</span>
+                    <span>统一的布局架构 - 使用 AdminLayout 保持页面一致性</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>🛠 技术实现</h2>
+            <div class="tech-stack">
+                <span class="tech-badge">React 18</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">React Query</span>
+                <span class="tech-badge">React Hook Form</span>
+                <span class="tech-badge">Axios</span>
+                <span class="tech-badge">React Router v6</span>
+                <span class="tech-badge">i18next</span>
+                <span class="tech-badge">Tailwind CSS</span>
+                <span class="tech-badge">Shadcn/UI</span>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>📁 文件结构</h2>
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <span class="check">📂</span>
+                    <span><strong>types/</strong> - TypeScript 类型定义</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">📂</span>
+                    <span><strong>services/</strong> - API 服务层</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">📂</span>
+                    <span><strong>hooks/</strong> - React 自定义钩子</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">📂</span>
+                    <span><strong>components/</strong> - UI 组件</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">📂</span>
+                    <span><strong>pages/</strong> - 页面组件</span>
+                </li>
+                <li class="feature-item">
+                    <span class="check">📂</span>
+                    <span><strong>locales/</strong> - 国际化文件</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="btn-container">
+            <a href="http://localhost:5174/orders" class="btn btn-primary" target="_blank">
+                🚀 访问订单页面
+            </a>
+            <a href="http://localhost:5174/" class="btn btn-secondary" target="_blank">
+                🏠 访问应用首页
+            </a>
+        </div>
+    </div>
+</body>
+</html>

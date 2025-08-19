@@ -1,0 +1,113 @@
+{
+  "title": {
+    "orderManagement": "订单管理",
+    "orderDetail": "订单详情",
+    "createOrder": "创建订单",
+    "payment": "订单支付"
+  },
+  "description": {
+    "orderManagement": "查看和管理您的所有订单"
+  },
+  "status": {
+    "pending": "待支付",
+    "paid": "已支付",
+    "cancelled": "已取消",
+    "expired": "已过期",
+    "refunded": "已退款"
+  },
+  "labels": {
+    "orderNo": "订单号",
+    "amount": "金额",
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间",
+    "paidAt": "支付时间",
+    "status": "状态",
+    "paymentMethod": "支付方式",
+    "paymentNo": "支付单号",
+    "plan": "套餐",
+    "planName": "套餐名称",
+    "billingCycle": "计费周期",
+    "description": "描述",
+    "basicInfo": "基本信息",
+    "planInfo": "套餐信息",
+    "paymentInfo": "支付信息",
+    "orderSummary": "订单摘要",
+    "subtotal": "小计",
+    "discount": "折扣",
+    "tax": "税费",
+    "total": "总计",
+    "selectPlan": "选择套餐",
+    "quantity": "数量",
+    "couponCode": "优惠券代码",
+    "couponOptional": "可选，如有优惠券请输入",
+    "expiresIn": "过期时间",
+    "minutes": "{{count}} 分钟",
+    "sortBy": "排序方式"
+  },
+  "actions": {
+    "createOrder": "创建订单",
+    "createFirstOrder": "创建第一个订单",
+    "pay": "立即支付",
+    "viewDetails": "查看详情",
+    "downloadInvoice": "下载发票",
+    "close": "关闭",
+    "cancel": "取消",
+    "confirmPayment": "确认支付",
+    "creating": "创建中...",
+    "processing": "处理中...",
+    "downloading": "下载中..."
+  },
+  "billing": {
+    "monthly": "月付",
+    "quarterly": "季付",
+    "yearly": "年付",
+    "daily": "日付",
+    "weekly": "周付"
+  },
+  "payment": {
+    "alipay": "支付宝",
+    "wechat": "微信支付",
+    "stripe": "Stripe",
+    "paypal": "PayPal"
+  },
+  "placeholders": {
+    "searchOrders": "搜索订单号或套餐名称",
+    "selectPlan": "请选择一个套餐",
+    "couponCode": "输入优惠券代码"
+  },
+  "filters": {
+    "allStatus": "全部状态"
+  },
+  "sort": {
+    "createdAt": "创建时间",
+    "amount": "金额",
+    "status": "状态"
+  },
+  "pagination": {
+    "previous": "上一页",
+    "next": "下一页",
+    "pageInfo": "第 {{current}} 页，共 {{total}} 页，总计 {{count}} 条"
+  },
+  "messages": {
+    "noOrders": "您还没有任何订单",
+    "noOrdersFound": "没有找到匹配的订单",
+    "orderNotFound": "订单不存在",
+    "orderExpired": "订单已过期",
+    "selectPaymentMethod": "请选择支付方式完成订单",
+    "paymentTimeLimit": "请在 {{minutes}} 分钟内完成支付",
+    "securePayment": "您的支付信息将通过加密通道安全传输",
+    "createSuccess": "订单 {{orderNo}} 创建成功",
+    "paymentSuccess": "支付成功",
+    "invoiceDownloaded": "发票下载成功"
+  },
+  "errors": {
+    "createFailed": "创建订单失败",
+    "paymentFailed": "支付失败",
+    "invoiceDownloadFailed": "发票下载失败"
+  },
+  "validation": {
+    "planRequired": "请选择套餐",
+    "quantityRequired": "请输入数量",
+    "quantityMin": "数量至少为1"
+  }
+}

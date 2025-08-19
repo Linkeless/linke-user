@@ -1,0 +1,113 @@
+{
+  "title": {
+    "orderManagement": "Order Management",
+    "orderDetail": "Order Details",
+    "createOrder": "Create Order",
+    "payment": "Order Payment"
+  },
+  "description": {
+    "orderManagement": "View and manage all your orders"
+  },
+  "status": {
+    "pending": "Pending",
+    "paid": "Paid",
+    "cancelled": "Cancelled",
+    "expired": "Expired",
+    "refunded": "Refunded"
+  },
+  "labels": {
+    "orderNo": "Order No",
+    "amount": "Amount",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "paidAt": "Paid At",
+    "status": "Status",
+    "paymentMethod": "Payment Method",
+    "paymentNo": "Payment No",
+    "plan": "Plan",
+    "planName": "Plan Name",
+    "billingCycle": "Billing Cycle",
+    "description": "Description",
+    "basicInfo": "Basic Information",
+    "planInfo": "Plan Information",
+    "paymentInfo": "Payment Information",
+    "orderSummary": "Order Summary",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "tax": "Tax",
+    "total": "Total",
+    "selectPlan": "Select Plan",
+    "quantity": "Quantity",
+    "couponCode": "Coupon Code",
+    "couponOptional": "Optional, enter if you have a coupon",
+    "expiresIn": "Expires In",
+    "minutes": "{{count}} minutes",
+    "sortBy": "Sort By"
+  },
+  "actions": {
+    "createOrder": "Create Order",
+    "createFirstOrder": "Create Your First Order",
+    "pay": "Pay Now",
+    "viewDetails": "View Details",
+    "downloadInvoice": "Download Invoice",
+    "close": "Close",
+    "cancel": "Cancel",
+    "confirmPayment": "Confirm Payment",
+    "creating": "Creating...",
+    "processing": "Processing...",
+    "downloading": "Downloading..."
+  },
+  "billing": {
+    "monthly": "Monthly",
+    "quarterly": "Quarterly",
+    "yearly": "Yearly",
+    "daily": "Daily",
+    "weekly": "Weekly"
+  },
+  "payment": {
+    "alipay": "Alipay",
+    "wechat": "WeChat Pay",
+    "stripe": "Stripe",
+    "paypal": "PayPal"
+  },
+  "placeholders": {
+    "searchOrders": "Search by order number or plan name",
+    "selectPlan": "Please select a plan",
+    "couponCode": "Enter coupon code"
+  },
+  "filters": {
+    "allStatus": "All Status"
+  },
+  "sort": {
+    "createdAt": "Created Date",
+    "amount": "Amount",
+    "status": "Status"
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "pageInfo": "Page {{current}} of {{total}}, Total {{count}} items"
+  },
+  "messages": {
+    "noOrders": "You don't have any orders yet",
+    "noOrdersFound": "No matching orders found",
+    "orderNotFound": "Order not found",
+    "orderExpired": "Order has expired",
+    "selectPaymentMethod": "Please select a payment method to complete your order",
+    "paymentTimeLimit": "Please complete payment within {{minutes}} minutes",
+    "securePayment": "Your payment information will be transmitted securely through encrypted channels",
+    "createSuccess": "Order {{orderNo}} created successfully",
+    "paymentSuccess": "Payment successful",
+    "invoiceDownloaded": "Invoice downloaded successfully"
+  },
+  "errors": {
+    "createFailed": "Failed to create order",
+    "paymentFailed": "Payment failed",
+    "invoiceDownloadFailed": "Failed to download invoice"
+  },
+  "validation": {
+    "planRequired": "Please select a plan",
+    "quantityRequired": "Please enter quantity",
+    "quantityMin": "Quantity must be at least 1"
+  }
+}

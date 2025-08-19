@@ -1,0 +1,58 @@
+/**
+ * AuthProvider loading styles
+ */
+
+.auth-provider-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8fafc;
+  color: #64748b;
+}
+
+.auth-provider-loading__spinner {
+  margin-bottom: 1rem;
+}
+
+.auth-provider-loading__text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid #e2e8f0;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .auth-provider-loading {
+    background-color: #0f172a;
+    color: #94a3b8;
+  }
+
+  .auth-provider-loading__text {
+    color: #94a3b8;
+  }
+
+  .spinner {
+    border-color: #334155;
+    border-top-color: #60a5fa;
+  }
+}
