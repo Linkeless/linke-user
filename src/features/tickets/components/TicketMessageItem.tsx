@@ -71,7 +71,7 @@ export function TicketMessageItem({
     <div
       className={cn(
         'p-4 rounded-lg border transition-colors',
-        getSenderStyles()
+        getSenderStyles(),
       )}
     >
       <div className='flex items-start gap-3'>

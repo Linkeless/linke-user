@@ -26,7 +26,7 @@ interface DashboardLayoutProps {
  * This is now a function that uses translations
  */
 const createDefaultDashboardNavigation = (
-  t: (key: string) => string
+  t: (key: string) => string,
 ): NavItem[] => [
   { label: t('navigation:menu.dashboard'), href: '/dashboard', active: true },
   { label: t('navigation:menu.subscriptions'), href: '/subscriptions' },

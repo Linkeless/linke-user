@@ -105,7 +105,7 @@ export function LanguageSwitcher({
             <h2 className='text-lg font-semibold text-foreground mb-2'>
               {t('common:language.switchTo', { language: '' }).replace(
                 ' {{language}}',
-                ''
+                '',
               )}
             </h2>
             <p className='text-sm text-muted-foreground'>

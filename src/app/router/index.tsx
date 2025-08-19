@@ -12,37 +12,37 @@ import { RouteTitle } from '@/components/RouteTitle';
 // Lazy load components for code splitting
 const LoginPage = lazy(() => import('@/features/auth/pages/LoginPage'));
 const OAuthCallbackPage = lazy(
-  () => import('@/features/auth/pages/OAuthCallbackPage')
+  () => import('@/features/auth/pages/OAuthCallbackPage'),
 );
 const DashboardPage = lazy(
-  () => import('@/features/dashboard/pages/DashboardPage')
+  () => import('@/features/dashboard/pages/DashboardPage'),
 );
 
 // Subscription pages
 const SubscriptionListPage = lazy(
-  () => import('@/features/subscription/pages/SubscriptionListPage')
+  () => import('@/features/subscription/pages/SubscriptionListPage'),
 );
 const PlanSelectionPage = lazy(
-  () => import('@/features/subscription/pages/PlanSelectionPage')
+  () => import('@/features/subscription/pages/PlanSelectionPage'),
 );
 const SubscriptionDetailPage = lazy(
-  () => import('@/features/subscription/pages/SubscriptionDetailPage')
+  () => import('@/features/subscription/pages/SubscriptionDetailPage'),
 );
 
 // Ticket pages
 const TicketListPage = lazy(
-  () => import('@/features/tickets/pages/TicketListPage')
+  () => import('@/features/tickets/pages/TicketListPage'),
 );
 const TicketDetailPage = lazy(
-  () => import('@/features/tickets/pages/TicketDetailPage')
+  () => import('@/features/tickets/pages/TicketDetailPage'),
 );
 const CreateTicketPage = lazy(
-  () => import('@/features/tickets/pages/CreateTicketPage')
+  () => import('@/features/tickets/pages/CreateTicketPage'),
 );
 
 // Order pages
 const OrderListPage = lazy(
-  () => import('@/features/order/pages/OrderListPage')
+  () => import('@/features/order/pages/OrderListPage'),
 );
 
 /**
@@ -100,8 +100,8 @@ const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
-        // OAuth callback route
-        path: 'auth/callback',
+        // OAuth callback route with provider parameter
+        path: 'auth/callback/:provider',
         element: <OAuthCallbackPage />,
       },
       {

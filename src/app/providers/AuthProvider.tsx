@@ -141,7 +141,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
     if (config.debug.enabled) {
       console.log(
-        `Token refresh scheduled in ${Math.round(refreshDelay / 1000)} seconds`
+        `Token refresh scheduled in ${Math.round(refreshDelay / 1000)} seconds`,
       );
     }
   }, [setTokens, reset]);

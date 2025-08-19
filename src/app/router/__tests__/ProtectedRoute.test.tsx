@@ -51,7 +51,7 @@ describe('ProtectedRoute', () => {
         <ProtectedRoute>
           <div data-testid='protected-content'>Protected Content</div>
         </ProtectedRoute>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
   };
 
@@ -201,7 +201,7 @@ describe('ProtectedRoute', () => {
             <div data-testid='child-2'>Child 2</div>
             <div data-testid='child-3'>Child 3</div>
           </ProtectedRoute>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
 
       expect(screen.getByTestId('child-1')).toBeInTheDocument();
@@ -226,7 +226,7 @@ describe('ProtectedRoute', () => {
             </main>
             <footer data-testid='footer'>Footer</footer>
           </ProtectedRoute>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
 
       expect(screen.getByTestId('header')).toBeInTheDocument();
@@ -269,7 +269,7 @@ describe('ProtectedRoute', () => {
           <ProtectedRoute>
             <div data-testid='protected-content'>Protected Content</div>
           </ProtectedRoute>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
 
       const navigateElement = screen.getByTestId('navigate');
@@ -304,7 +304,7 @@ describe('ProtectedRoute', () => {
       render(
         <MemoryRouter>
           <ProtectedRoute>{null}</ProtectedRoute>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
 
       // Should not crash and should not show any navigation or loading
@@ -367,7 +367,7 @@ describe('ProtectedRoute', () => {
           <ProtectedRoute>
             <div data-testid='protected-content'>Protected Content</div>
           </ProtectedRoute>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
 
       expect(screen.getByText(/loading/i)).toBeInTheDocument();
@@ -384,7 +384,7 @@ describe('ProtectedRoute', () => {
           <ProtectedRoute>
             <div data-testid='protected-content'>Protected Content</div>
           </ProtectedRoute>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
 
       expect(screen.queryByText(/loading/i)).not.toBeInTheDocument();
@@ -406,7 +406,7 @@ describe('ProtectedRoute', () => {
           <ProtectedRoute>
             <div data-testid='protected-content'>Protected Content</div>
           </ProtectedRoute>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
 
       expect(screen.getByText(/loading/i)).toBeInTheDocument();
@@ -423,7 +423,7 @@ describe('ProtectedRoute', () => {
           <ProtectedRoute>
             <div data-testid='protected-content'>Protected Content</div>
           </ProtectedRoute>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
 
       expect(screen.queryByText(/loading/i)).not.toBeInTheDocument();

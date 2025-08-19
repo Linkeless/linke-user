@@ -19,7 +19,7 @@ import type { ApiError } from './client';
  * Uses synchronous token retrieval for consistent behavior
  */
 export const requestInterceptor = (
-  config: InternalAxiosRequestConfig
+  config: InternalAxiosRequestConfig,
 ): InternalAxiosRequestConfig => {
   try {
     // Use synchronous token retrieval to avoid race conditions
@@ -55,7 +55,7 @@ export const requestInterceptor = (
           hasToken: !!accessToken,
           tokenLength: accessToken?.length || 0,
           fullAuthHeader: config.headers.Authorization,
-        }
+        },
       );
     }
 
@@ -86,7 +86,7 @@ export const responseInterceptor = (response: AxiosResponse): AxiosResponse => {
       {
         status: response.status,
         data: response.data,
-      }
+      },
     );
   }
 
@@ -168,7 +168,7 @@ const refreshAuthToken = async (): Promise<string | null> => {
  * Handles 401 errors and automatic token refresh with request retry
  */
 export const responseInterceptorError = async (
-  error: AxiosError
+  error: AxiosError,
 ): Promise<any> => {
   const originalRequest = error.config as AxiosRequestConfig & {
     _retry?: boolean;
@@ -206,7 +206,7 @@ export const responseInterceptorError = async (
           }
           // Import here to avoid circular dependency
           return import('./client').then(({ apiClient }) =>
-            apiClient(originalRequest)
+            apiClient(originalRequest),
           );
         })
         .catch(err => {
@@ -250,7 +250,7 @@ export const responseInterceptorError = async (
         window.dispatchEvent(
           new CustomEvent('auth:token-refresh-failed', {
             detail: { error: refreshError },
-          })
+          }),
         );
 
         // Redirect to login as fallback
@@ -277,7 +277,7 @@ export const responseInterceptorError = async (
         code: apiError.code,
         message: apiError.message,
         details: apiError.details,
-      }
+      },
     );
   }
 
@@ -327,12 +327,12 @@ export function setupInterceptors(axiosInstance: any): void {
   // Request interceptors
   axiosInstance.interceptors.request.use(
     requestInterceptor,
-    requestInterceptorError
+    requestInterceptorError,
   );
 
   // Response interceptors
   axiosInstance.interceptors.response.use(
     responseInterceptor,
-    responseInterceptorError
+    responseInterceptorError,
   );
 }

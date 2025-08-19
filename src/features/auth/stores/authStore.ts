@@ -64,7 +64,7 @@ export const useAuthStore = create<AuthStoreState>()(
               error: null, // Clear error on successful user set
             }),
             false,
-            'auth/setUser'
+            'auth/setUser',
           );
         },
 
@@ -76,7 +76,7 @@ export const useAuthStore = create<AuthStoreState>()(
               isAuthenticated: tokens !== null && state.user !== null,
             }),
             false,
-            'auth/setTokens'
+            'auth/setTokens',
           );
         },
 
@@ -84,7 +84,7 @@ export const useAuthStore = create<AuthStoreState>()(
           set(
             state => ({ ...state, isLoading: loading }),
             false,
-            'auth/setLoading'
+            'auth/setLoading',
           );
         },
 
@@ -96,7 +96,7 @@ export const useAuthStore = create<AuthStoreState>()(
           set(
             state => ({ ...state, isAuthenticated: authenticated }),
             false,
-            'auth/setAuthenticated'
+            'auth/setAuthenticated',
           );
         },
 
@@ -104,7 +104,7 @@ export const useAuthStore = create<AuthStoreState>()(
           set(
             state => ({ ...state, hasInitialized: initialized }),
             false,
-            'auth/setInitialized'
+            'auth/setInitialized',
           );
         },
 
@@ -112,7 +112,7 @@ export const useAuthStore = create<AuthStoreState>()(
           set(
             () => ({ ...initialState, hasInitialized: true }),
             false,
-            'auth/reset'
+            'auth/reset',
           );
         },
 
@@ -144,12 +144,12 @@ export const useAuthStore = create<AuthStoreState>()(
           }
           return persistedState;
         },
-      }
+      },
     ),
     {
       name: 'auth-store', // DevTools name
-    }
-  )
+    },
+  ),
 );
 
 /**

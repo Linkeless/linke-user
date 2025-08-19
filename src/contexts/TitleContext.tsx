@@ -60,7 +60,7 @@ export function TitleProvider({
   // Initialize title service
   const titleService = useMemo(
     () => TitleService.getInstance(config),
-    [config]
+    [config],
   );
 
   // Local state to trigger re-renders
@@ -112,12 +112,12 @@ export function TitleProvider({
         } catch (error) {
           console.error(
             '[TitleProvider] Failed to set notification count:',
-            error
+            error,
           );
         }
       },
     }),
-    [state, titleService]
+    [state, titleService],
   );
 
   return (
@@ -158,7 +158,7 @@ export function useTitleContext(): TitleContextValue {
   if (!context) {
     throw new Error(
       'useTitleContext must be used within a TitleProvider. ' +
-        'Make sure your component is wrapped with <TitleProvider>.'
+        'Make sure your component is wrapped with <TitleProvider>.',
     );
   }
 
@@ -304,7 +304,7 @@ export function useTitleNotifications(count: number): void {
  */
 export function withTitleProvider<P extends object>(
   Component: React.ComponentType<P>,
-  config?: Partial<TitleConfig>
+  config?: Partial<TitleConfig>,
 ) {
   const WrappedComponent = (props: P) => (
     <TitleProvider config={config}>
@@ -349,7 +349,7 @@ export class TitleErrorBoundary extends React.Component<
     console.error(
       '[TitleErrorBoundary] Title context error:',
       error,
-      errorInfo
+      errorInfo,
     );
 
     if (this.props.onError) {

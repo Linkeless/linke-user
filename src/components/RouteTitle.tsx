@@ -253,7 +253,7 @@ export function RouterIntegratedTitle({
  */
 export function findRouteMetadata(
   pathname: string,
-  metadata: RouteMetadata[]
+  metadata: RouteMetadata[],
 ): RouteMetadata | undefined {
   // Try exact match first
   let found = metadata.find(route => route.path === pathname);
@@ -308,7 +308,7 @@ export function useRouteTitleEffect(
   options: {
     showUsername?: boolean;
     showNotifications?: boolean;
-  } = {}
+  } = {},
 ): void {
   const location = useLocation();
   const { pathname } = location;
@@ -332,7 +332,7 @@ export function withRouteTitle<P extends object>(
   options: {
     showUsername?: boolean;
     showNotifications?: boolean;
-  } = {}
+  } = {},
 ) {
   const WrappedComponent = (props: P) => {
     useDocumentTitle({

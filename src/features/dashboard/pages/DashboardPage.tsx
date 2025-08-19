@@ -101,7 +101,7 @@ export function DashboardPage() {
                     </p>
                     <p className='text-sm'>
                       {t(
-                        'dashboard:sections.recentActivity.noActivityDescription'
+                        'dashboard:sections.recentActivity.noActivityDescription',
                       )}
                     </p>
                   </div>

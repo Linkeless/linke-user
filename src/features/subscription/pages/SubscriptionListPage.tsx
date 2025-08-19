@@ -147,7 +147,7 @@ export default function SubscriptionListPage() {
       sub.subscription_plan?.name
         ?.toLowerCase()
         .includes(searchTerm.toLowerCase()) ||
-      sub.uuid.toLowerCase().includes(searchTerm.toLowerCase())
+      sub.uuid.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   // Handlers

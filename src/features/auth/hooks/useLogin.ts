@@ -219,7 +219,7 @@ export const useLogin = (options: UseLoginOptions = {}): UseLoginReturn => {
         return await authServiceUtils.handleOAuthCallback(
           variables.provider,
           variables.code,
-          variables.state
+          variables.state,
         );
       }
     },
@@ -256,7 +256,7 @@ export const useLogin = (options: UseLoginOptions = {}): UseLoginReturn => {
     onSettled: (
       data: LoginResponse | undefined,
       error: AuthError | null,
-      variables: LoginVariables
+      variables: LoginVariables,
     ) => {
       // Call custom onSettled callback
       onSettled?.(data, error, variables);
@@ -277,7 +277,7 @@ export const useLogin = (options: UseLoginOptions = {}): UseLoginReturn => {
 
   // Async convenience method for email/password login
   const loginWithCredentialsAsync = (
-    credentials: LoginCredentials
+    credentials: LoginCredentials,
   ): Promise<LoginResponse> => {
     return mutation.mutateAsync({
       type: 'credentials',
@@ -289,7 +289,7 @@ export const useLogin = (options: UseLoginOptions = {}): UseLoginReturn => {
   const loginWithOAuth = (
     provider: OAuthProvider,
     code: string,
-    state?: string
+    state?: string,
   ): void => {
     mutation.mutate({
       type: 'oauth',
@@ -303,7 +303,7 @@ export const useLogin = (options: UseLoginOptions = {}): UseLoginReturn => {
   const loginWithOAuthAsync = (
     provider: OAuthProvider,
     code: string,
-    state?: string
+    state?: string,
   ): Promise<LoginResponse> => {
     return mutation.mutateAsync({
       type: 'oauth',

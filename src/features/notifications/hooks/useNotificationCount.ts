@@ -106,7 +106,7 @@ function getMockNotifications(t: any): Notification[] {
  * ```
  */
 export function useNotificationCount(
-  options: UseNotificationCountOptions = {}
+  options: UseNotificationCountOptions = {},
 ) {
   const { t } = useTranslation('notifications');
   const {
@@ -183,7 +183,7 @@ export function useNotificationCount(
     async (notificationId: string) => {
       setState(prev => {
         const updatedNotifications = prev.notifications.map(notif =>
-          notif.id === notificationId ? { ...notif, read: true } : notif
+          notif.id === notificationId ? { ...notif, read: true } : notif,
         );
         const newUnreadCount = updatedNotifications.filter(n => !n.read).length;
 
@@ -210,7 +210,7 @@ export function useNotificationCount(
         }
       }
     },
-    [updateTitle, titleContext, useMockData]
+    [updateTitle, titleContext, useMockData],
   );
 
   /**
@@ -275,7 +275,7 @@ export function useNotificationCount(
         };
       });
     },
-    [updateTitle, titleContext]
+    [updateTitle, titleContext],
   );
 
   /**
@@ -285,7 +285,7 @@ export function useNotificationCount(
     async (notificationId: string) => {
       setState(prev => {
         const updatedNotifications = prev.notifications.filter(
-          n => n.id !== notificationId
+          n => n.id !== notificationId,
         );
         const newUnreadCount = updatedNotifications.filter(n => !n.read).length;
 
@@ -313,7 +313,7 @@ export function useNotificationCount(
         }
       }
     },
-    [updateTitle, titleContext, useMockData]
+    [updateTitle, titleContext, useMockData],
   );
 
   /**
@@ -378,7 +378,7 @@ export function useUnreadCount(
   options: Pick<
     UseNotificationCountOptions,
     'fetchInterval' | 'useMockData'
-  > = {}
+  > = {},
 ) {
   const { unreadCount, isLoading, error } = useNotificationCount({
     ...options,
@@ -394,7 +394,7 @@ export function useUnreadCount(
  * Use when you want to manage title updates manually
  */
 export function useNotificationCountOnly(
-  options: Omit<UseNotificationCountOptions, 'updateTitle'> = {}
+  options: Omit<UseNotificationCountOptions, 'updateTitle'> = {},
 ) {
   return useNotificationCount({
     ...options,

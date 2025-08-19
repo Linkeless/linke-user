@@ -69,7 +69,7 @@ export class DashboardService {
       } else {
         console.warn(
           'User profile fetch failed, continuing without profile data:',
-          userProfile.reason
+          userProfile.reason,
         );
       }
 

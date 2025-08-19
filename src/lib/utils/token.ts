@@ -48,7 +48,7 @@ class TokenManager {
    */
   async storeTokens(
     tokens: AuthTokens,
-    rememberMe: boolean = false
+    rememberMe: boolean = false,
   ): Promise<void> {
     try {
       // Calculate expiry timestamp
@@ -67,7 +67,7 @@ class TokenManager {
       this.storage.setItem(TOKEN_STORAGE_KEYS.ACCESS_TOKEN, tokens.accessToken);
       this.storage.setItem(
         TOKEN_STORAGE_KEYS.TOKEN_EXPIRY,
-        expiryTime.toString()
+        expiryTime.toString(),
       );
 
       // Refresh token storage depends on Remember Me setting
@@ -75,7 +75,7 @@ class TokenManager {
         // Store refresh token in localStorage for 30 days
         this.persistentStorage.setItem(
           TOKEN_STORAGE_KEYS.REFRESH_TOKEN,
-          tokens.refreshToken
+          tokens.refreshToken,
         );
         // Clear session storage refresh token to avoid conflicts
         this.storage.removeItem(TOKEN_STORAGE_KEYS.REFRESH_TOKEN);
@@ -83,7 +83,7 @@ class TokenManager {
         // Store refresh token in sessionStorage for session only
         this.storage.setItem(
           TOKEN_STORAGE_KEYS.REFRESH_TOKEN,
-          tokens.refreshToken
+          tokens.refreshToken,
         );
         // Clear persistent storage refresh token
         this.persistentStorage.removeItem(TOKEN_STORAGE_KEYS.REFRESH_TOKEN);
@@ -114,7 +114,7 @@ class TokenManager {
     try {
       const storedToken = this.storage.getItem(TOKEN_STORAGE_KEYS.ACCESS_TOKEN);
       const storedExpiry = this.storage.getItem(
-        TOKEN_STORAGE_KEYS.TOKEN_EXPIRY
+        TOKEN_STORAGE_KEYS.TOKEN_EXPIRY,
       );
 
       if (storedToken && storedExpiry) {
@@ -162,7 +162,7 @@ class TokenManager {
     try {
       const storedToken = this.storage.getItem(TOKEN_STORAGE_KEYS.ACCESS_TOKEN);
       const storedExpiry = this.storage.getItem(
-        TOKEN_STORAGE_KEYS.TOKEN_EXPIRY
+        TOKEN_STORAGE_KEYS.TOKEN_EXPIRY,
       );
 
       if (config.debug.enabled) {
@@ -182,7 +182,7 @@ class TokenManager {
           this.tokenExpiry = expiryTime;
           if (config.debug.enabled) {
             console.log(
-              '✅ Found valid token in sessionStorage, cached to memory'
+              '✅ Found valid token in sessionStorage, cached to memory',
             );
           }
           return storedToken;
@@ -223,7 +223,7 @@ class TokenManager {
 
     // Check sessionStorage
     const sessionRefreshToken = this.storage.getItem(
-      TOKEN_STORAGE_KEYS.REFRESH_TOKEN
+      TOKEN_STORAGE_KEYS.REFRESH_TOKEN,
     );
     if (sessionRefreshToken) {
       this.refreshToken = sessionRefreshToken;
@@ -233,7 +233,7 @@ class TokenManager {
 
     // Check localStorage (Remember Me)
     const persistentRefreshToken = this.persistentStorage.getItem(
-      TOKEN_STORAGE_KEYS.REFRESH_TOKEN
+      TOKEN_STORAGE_KEYS.REFRESH_TOKEN,
     );
     if (persistentRefreshToken) {
       this.refreshToken = persistentRefreshToken;
@@ -254,7 +254,7 @@ class TokenManager {
     if (accessToken && refreshToken && this.tokenExpiry) {
       const expiresIn = Math.max(
         0,
-        Math.floor((this.tokenExpiry - Date.now()) / 1000)
+        Math.floor((this.tokenExpiry - Date.now()) / 1000),
       );
 
       return {
@@ -358,7 +358,7 @@ class TokenManager {
       // If no session refresh token, check localStorage
       if (!refreshToken) {
         refreshToken = this.persistentStorage.getItem(
-          TOKEN_STORAGE_KEYS.REFRESH_TOKEN
+          TOKEN_STORAGE_KEYS.REFRESH_TOKEN,
         );
         isRememberMe = true;
       }

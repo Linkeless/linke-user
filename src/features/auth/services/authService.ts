@@ -44,7 +44,7 @@ export class AuthError extends Error {
     message: string,
     public code: string,
     public status: number,
-    public details?: Record<string, any>
+    public details?: Record<string, any>,
   ) {
     super(message);
     this.name = 'AuthError';
@@ -113,7 +113,7 @@ class AuthService implements AuthServiceInterface {
         throw new AuthError(
           'Please enter a valid email address',
           'INVALID_EMAIL',
-          400
+          400,
         );
       }
 
@@ -123,7 +123,7 @@ class AuthService implements AuthServiceInterface {
           email: emailValidation.data,
           password: credentials.password,
           rememberMe: credentials.rememberMe || false,
-        }
+        },
       );
 
       // Map backend response to frontend format
@@ -132,7 +132,7 @@ class AuthService implements AuthServiceInterface {
       // Store tokens securely with Remember Me setting
       await tokenUtils.storeTokens(
         loginResponse.tokens,
-        credentials.rememberMe
+        credentials.rememberMe,
       );
 
       return loginResponse;
@@ -163,7 +163,7 @@ class AuthService implements AuthServiceInterface {
             headers: {
               Authorization: `Bearer ${accessToken}`,
             },
-          }
+          },
         );
       }
     } catch (error: any) {
@@ -192,7 +192,7 @@ class AuthService implements AuthServiceInterface {
           throw new AuthError(
             'No refresh token available',
             'NO_REFRESH_TOKEN',
-            401
+            401,
           );
         }
 
@@ -226,7 +226,7 @@ class AuthService implements AuthServiceInterface {
     throw new AuthError(
       'Token refresh failed after retries',
       'REFRESH_FAILED',
-      401
+      401,
     );
   }
 
@@ -256,10 +256,12 @@ class AuthService implements AuthServiceInterface {
   async getOAuthUrl(provider: OAuthProvider): Promise<string> {
     try {
       // Request OAuth URL from backend which manages all OAuth credentials
+      // Include provider in redirect_uri for proper callback routing
+      const redirectUri = `${window.location.origin}/auth/callback/${provider}`;
       const response: AxiosResponse<{ auth_url: string; state: string }> =
         await apiClient.post(AUTH_ENDPOINTS.OAUTH_URL, {
           provider,
-          redirect_uri: `${window.location.origin}/auth/callback`,
+          redirect_uri: redirectUri,
         });
 
       return response.data.auth_url;
@@ -280,7 +282,7 @@ class AuthService implements AuthServiceInterface {
   async handleOAuthCallback(
     provider: OAuthProvider,
     code: string,
-    state?: string
+    state?: string,
   ): Promise<LoginResponse> {
     try {
       // Exchange authorization code for tokens via backend
@@ -291,7 +293,7 @@ class AuthService implements AuthServiceInterface {
           provider,
           code,
           state,
-        }
+        },
       );
 
       // Map backend response to frontend format
@@ -304,7 +306,7 @@ class AuthService implements AuthServiceInterface {
     } catch (error: any) {
       throw this.handleAuthError(
         error,
-        `${provider} OAuth authentication failed`
+        `${provider} OAuth authentication failed`,
       );
     }
   }
@@ -348,7 +350,7 @@ class AuthService implements AuthServiceInterface {
    */
   async changePassword(
     currentPassword: string,
-    newPassword: string
+    newPassword: string,
   ): Promise<void> {
     try {
       await apiClient.post(AUTH_ENDPOINTS.CHANGE_PASSWORD, {
@@ -383,7 +385,7 @@ class AuthService implements AuthServiceInterface {
         error.message || defaultMessage,
         error.code,
         error.status,
-        error.details
+        error.details,
       );
     }
 
@@ -433,7 +435,7 @@ class AuthService implements AuthServiceInterface {
       return new AuthError(
         'Network error. Please check your connection.',
         'NETWORK_ERROR',
-        0
+        0,
       );
     }
 
@@ -442,7 +444,7 @@ class AuthService implements AuthServiceInterface {
       return new AuthError(
         'Network error. Please check your connection.',
         'NETWORK_ERROR',
-        0
+        0,
       );
     }
 
@@ -491,7 +493,7 @@ export const authServiceUtils = {
   handleOAuthCallback: (
     provider: OAuthProvider,
     code: string,
-    state?: string
+    state?: string,
   ) => authService.handleOAuthCallback(provider, code, state),
 
   /**

@@ -125,7 +125,7 @@ describe('Title Navigation Integration', () => {
           expect(document.title).toContain('Dashboard');
           expect(document.title).toContain('Linke User Portal');
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
 
@@ -141,7 +141,7 @@ describe('Title Navigation Integration', () => {
           expect(document.title).toContain('Login');
           expect(document.title).toContain('Linke User Portal');
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
 
@@ -157,7 +157,7 @@ describe('Title Navigation Integration', () => {
           expect(document.title).toContain('Loading');
           expect(document.title).toContain('Data Loading');
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
 
@@ -173,7 +173,7 @@ describe('Title Navigation Integration', () => {
           expect(document.title).toContain('Profile');
           expect(document.title).toContain('testuser');
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
   });
@@ -201,7 +201,7 @@ describe('Title Navigation Integration', () => {
           expect(document.title).toContain('Dashboard');
           expect(document.title).not.toContain('Login');
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
 
@@ -229,7 +229,7 @@ describe('Title Navigation Integration', () => {
         () => {
           expect(document.title).toContain('Login');
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
   });
@@ -257,7 +257,7 @@ describe('Title Navigation Integration', () => {
         () => {
           expect(document.title).toContain('Profile');
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
   });
@@ -271,7 +271,7 @@ describe('Title Navigation Integration', () => {
           expect(screen.getByTestId('dashboard')).toBeInTheDocument();
           expect(document.title).toContain('Dashboard');
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
 
@@ -284,7 +284,7 @@ describe('Title Navigation Integration', () => {
           expect(document.title).toContain('Profile');
           expect(document.title).toContain('testuser');
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
 
@@ -297,7 +297,7 @@ describe('Title Navigation Integration', () => {
           // The exact behavior depends on your routing setup
           expect(document.title).toBeDefined();
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
   });
@@ -319,7 +319,7 @@ describe('Title Navigation Integration', () => {
         () => {
           expect(document.title).toContain('Loading');
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
   });
@@ -351,7 +351,7 @@ describe('Title Navigation Integration', () => {
           expect(document.title).toBeDefined();
           expect(document.title.length).toBeGreaterThan(0);
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
   });
@@ -390,7 +390,7 @@ describe('Title Navigation Integration', () => {
         () => {
           expect(document.title).toContain('Final Title');
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
   });
@@ -428,7 +428,7 @@ describe('Title Navigation Integration', () => {
         () => {
           expect(document.title).toMatch(/Dashboard.*Linke User Portal/);
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
 
       // Navigate to profile
@@ -440,7 +440,7 @@ describe('Title Navigation Integration', () => {
         () => {
           expect(document.title).toMatch(/Profile.*Linke User Portal/);
         },
-        { timeout: 1000 }
+        { timeout: 1000 },
       );
     });
   });

@@ -58,7 +58,7 @@ describe('useDocumentTitle', () => {
           useDocumentTitle({
             title: 'Dashboard',
           }),
-        { wrapper }
+        { wrapper },
       );
 
       expect(mockTitleService.updateWithParts).toHaveBeenCalledWith({
@@ -74,7 +74,7 @@ describe('useDocumentTitle', () => {
             title: 'Dashboard',
             isLoading: true,
           }),
-        { wrapper }
+        { wrapper },
       );
 
       expect(mockTitleService.updateWithParts).toHaveBeenCalledWith({
@@ -92,7 +92,7 @@ describe('useDocumentTitle', () => {
         {
           wrapper,
           initialProps: { title: 'Dashboard' },
-        }
+        },
       );
 
       expect(mockTitleService.updateWithParts).toHaveBeenCalledWith({
@@ -120,7 +120,7 @@ describe('useDocumentTitle', () => {
             title: 'Dashboard',
             dependencies: [dependency],
           }),
-        { wrapper }
+        { wrapper },
       );
 
       expect(mockTitleService.updateWithParts).toHaveBeenCalledTimes(1);
@@ -139,7 +139,7 @@ describe('useDocumentTitle', () => {
             title: 'Dashboard',
             isLoading: true,
           }),
-        { wrapper }
+        { wrapper },
       );
 
       unmount();
@@ -154,7 +154,7 @@ describe('useDocumentTitle', () => {
             title: 'Dashboard',
             isLoading: false,
           }),
-        { wrapper }
+        { wrapper },
       );
 
       // Clear initial call
@@ -193,7 +193,7 @@ describe('useDocumentTitle', () => {
         {
           wrapper,
           initialProps: { isLoading: false },
-        }
+        },
       );
 
       expect(mockTitleService.updateWithParts).toHaveBeenCalledWith({
@@ -233,7 +233,7 @@ describe('useDocumentTitle', () => {
         {
           wrapper,
           initialProps: { username: 'john_doe' },
-        }
+        },
       );
 
       expect(mockTitleService.setUserContext).toHaveBeenCalledWith('john_doe');
@@ -266,7 +266,7 @@ describe('useDocumentTitle', () => {
             showNotificationCount: true,
             isLoading: true,
           }),
-        { wrapper }
+        { wrapper },
       );
 
       expect(mockTitleService.updateWithParts).toHaveBeenCalledWith({
@@ -306,7 +306,7 @@ describe('useDocumentTitle', () => {
             useDocumentTitle({
               title: 'Dashboard',
             }),
-          { wrapper }
+          { wrapper },
         );
       }).not.toThrow();
     });
@@ -324,7 +324,7 @@ describe('useDocumentTitle', () => {
         {
           wrapper,
           initialProps: { extraProp: 'value1' },
-        }
+        },
       );
 
       expect(mockTitleService.updateWithParts).toHaveBeenCalledTimes(1);

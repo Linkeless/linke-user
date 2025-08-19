@@ -132,7 +132,7 @@ export function Layout({
           className={cn(
             'min-h-screen flex items-center justify-center',
             getBackgroundClass(),
-            className
+            className,
           )}
         >
           <div
@@ -140,7 +140,7 @@ export function Layout({
               'w-full',
               getMaxWidthClass(),
               getContentPadding(),
-              contentClassName
+              contentClassName,
             )}
           >
             {children}
@@ -178,7 +178,7 @@ export function Layout({
               className={cn(
                 'flex-1 min-w-0',
                 getContentPadding(),
-                contentClassName
+                contentClassName,
               )}
             >
               <div className={getMaxWidthClass()}>{children}</div>
@@ -200,7 +200,7 @@ export function Layout({
           className={cn(
             'min-h-screen flex flex-col',
             getBackgroundClass(),
-            className
+            className,
           )}
         >
           {/* Header */}
@@ -318,7 +318,7 @@ export function Container({
       className={cn(
         'mx-auto px-4 sm:px-6 lg:px-8',
         sizeClasses[size],
-        className
+        className,
       )}
     >
       {children}

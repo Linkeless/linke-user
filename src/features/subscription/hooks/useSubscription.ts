@@ -48,7 +48,7 @@ export function useSubscriptions(
   status?: string,
   limit = 10,
   offset = 0,
-  options?: { enabled?: boolean }
+  options?: { enabled?: boolean },
 ) {
   return useQuery({
     queryKey: subscriptionQueryKeys.list({ status, limit, offset }),
@@ -78,7 +78,7 @@ export function useActiveSubscriptions(options?: { enabled?: boolean }) {
  */
 export function useSubscriptionDetail(
   id: string | number,
-  options?: { enabled?: boolean }
+  options?: { enabled?: boolean },
 ) {
   return useQuery({
     queryKey: subscriptionQueryKeys.detail(id),
@@ -94,7 +94,7 @@ export function useSubscriptionDetail(
  */
 export function useTrafficStats(
   subscriptionId: string | number,
-  options?: { enabled?: boolean }
+  options?: { enabled?: boolean },
 ) {
   return useQuery({
     queryKey: subscriptionQueryKeys.traffic(subscriptionId),
@@ -127,7 +127,7 @@ export function useSubscriptionPlans(
   currency?: string,
   limit = 100,
   offset = 0,
-  options?: { enabled?: boolean }
+  options?: { enabled?: boolean },
 ) {
   return useQuery({
     queryKey: planQueryKeys.list({ currency, limit, offset }),
@@ -156,7 +156,7 @@ export function usePopularPlans(limit = 5, options?: { enabled?: boolean }) {
  */
 export function usePlanDetail(
   id: string | number,
-  options?: { enabled?: boolean }
+  options?: { enabled?: boolean },
 ) {
   return useQuery({
     queryKey: planQueryKeys.detail(id),

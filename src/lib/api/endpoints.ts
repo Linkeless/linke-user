@@ -123,11 +123,11 @@ export const ENDPOINTS = {
  */
 export function buildEndpoint(
   endpoint: string,
-  params: Record<string, string | number>
+  params: Record<string, string | number>,
 ): string {
   return Object.entries(params).reduce(
     (url, [key, value]) => url.replace(`{${key}}`, String(value)),
-    endpoint
+    endpoint,
   );
 }
 

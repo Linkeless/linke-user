@@ -108,7 +108,7 @@ export function validateConfig(): boolean {
       // Validate that it has the correct /api/v1 prefix
       if (!config.api.baseUrl.includes('/api/v1')) {
         console.warn(
-          'API URL should include /api/v1 prefix for backend compatibility'
+          'API URL should include /api/v1 prefix for backend compatibility',
         );
       }
 

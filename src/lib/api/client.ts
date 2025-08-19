@@ -83,7 +83,7 @@ export function isApiError(error: any): error is ApiError {
  * Useful for testing or special configurations
  */
 export function createCustomApiClient(
-  axiosConfig?: AxiosRequestConfig
+  axiosConfig?: AxiosRequestConfig,
 ): AxiosInstance {
   return axios.create({
     ...axiosConfig,

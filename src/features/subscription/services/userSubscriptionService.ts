@@ -22,7 +22,7 @@ export class UserSubscriptionService {
   async getActiveSubscriptions(): Promise<UserSubscription[]> {
     try {
       const response = await apiClient.get<UserSubscription[]>(
-        SUBSCRIPTION_ENDPOINTS.ACTIVE_SUBSCRIPTIONS
+        SUBSCRIPTION_ENDPOINTS.ACTIVE_SUBSCRIPTIONS,
       );
       return response.data;
     } catch (error) {
@@ -37,7 +37,7 @@ export class UserSubscriptionService {
   async getAllSubscriptions(
     status?: string,
     limit = 10,
-    offset = 0
+    offset = 0,
   ): Promise<{ data: UserSubscription[]; total: number }> {
     try {
       const params = new URLSearchParams();
@@ -48,7 +48,7 @@ export class UserSubscriptionService {
       params.append('offset', offset.toString());
 
       const response = await apiClient.get(
-        `${SUBSCRIPTION_ENDPOINTS.MY_SUBSCRIPTIONS}?${params.toString()}`
+        `${SUBSCRIPTION_ENDPOINTS.MY_SUBSCRIPTIONS}?${params.toString()}`,
       );
 
       // Handle HAL collection response
@@ -68,13 +68,13 @@ export class UserSubscriptionService {
   async getTrafficStats(subscriptionId: number): Promise<TrafficStats> {
     try {
       const response = await apiClient.get<TrafficStats>(
-        EndpointBuilders.subscriptionTrafficStats(subscriptionId)
+        EndpointBuilders.subscriptionTrafficStats(subscriptionId),
       );
       return response.data;
     } catch (error) {
       console.error(
         `Failed to fetch traffic stats for subscription ${subscriptionId}:`,
-        error
+        error,
       );
       throw new Error('Failed to fetch traffic statistics');
     }
@@ -107,7 +107,7 @@ export class UserSubscriptionService {
         } catch (error) {
           console.warn(
             'Failed to fetch traffic stats, continuing without them:',
-            error
+            error,
           );
         }
       }
@@ -211,7 +211,7 @@ export class UserSubscriptionService {
   async getSubscriptionById(id: string | number): Promise<UserSubscription> {
     try {
       const response = await apiClient.get<UserSubscription>(
-        EndpointBuilders.subscriptionById(id)
+        EndpointBuilders.subscriptionById(id),
       );
       return response.data;
     } catch (error) {
@@ -229,7 +229,7 @@ export class UserSubscriptionService {
         SUBSCRIPTION_ENDPOINTS.CLASH_CONFIG,
         {
           responseType: 'blob',
-        }
+        },
       );
       return response.data;
     } catch (error) {

@@ -63,7 +63,7 @@ export function CreateOrderForm({
     queryKey: ['subscription-plans'],
     queryFn: async () => {
       const response = await apiClient.get<SubscriptionPlanResponse[]>(
-        SUBSCRIPTION_ENDPOINTS.PLANS
+        SUBSCRIPTION_ENDPOINTS.PLANS,
       );
       return response.data;
     },
@@ -157,7 +157,7 @@ export function CreateOrderForm({
                               <span className='ml-2 text-muted-foreground'>
                                 {orderService.formatAmount(
                                   plan.price,
-                                  plan.currency
+                                  plan.currency,
                                 )}
                               </span>
                             </div>
@@ -252,7 +252,7 @@ export function CreateOrderForm({
                     <span className='text-lg font-bold'>
                       {orderService.formatAmount(
                         calculateTotal(),
-                        selectedPlan.currency
+                        selectedPlan.currency,
                       )}
                     </span>
                   </div>

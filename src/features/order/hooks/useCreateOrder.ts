@@ -26,7 +26,7 @@ export function useCreateOrder() {
 
       // Show success message
       toast.success(
-        t('messages.createSuccess', { orderNo: newOrder.order_no })
+        t('messages.createSuccess', { orderNo: newOrder.order_no }),
       );
     },
     onError: (error: Error) => {

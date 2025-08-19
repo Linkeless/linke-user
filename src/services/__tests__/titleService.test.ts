@@ -336,7 +336,7 @@ describe('TitleService', () => {
       // Mock document.title to throw error
       const originalDescriptor = Object.getOwnPropertyDescriptor(
         Document.prototype,
-        'title'
+        'title',
       );
 
       Object.defineProperty(document, 'title', {

@@ -87,7 +87,7 @@ export class OrderService {
   async getOrderById(id: string | number): Promise<Order> {
     try {
       const response = await apiClient.get<Order>(
-        EndpointBuilders.orderById(id)
+        EndpointBuilders.orderById(id),
       );
       return response.data;
     } catch (error) {
@@ -103,7 +103,7 @@ export class OrderService {
     try {
       const response = await apiClient.post<Order>(
         ORDER_ENDPOINTS.CREATE_ORDER,
-        data
+        data,
       );
       return response.data;
     } catch (error) {
@@ -114,7 +114,7 @@ export class OrderService {
         const apiError = error as any;
         if (apiError.response?.status === 400) {
           throw new Error(
-            apiError.response.data?.message || 'Invalid order data'
+            apiError.response.data?.message || 'Invalid order data',
           );
         } else if (apiError.response?.status === 404) {
           throw new Error('Subscription plan not found');
@@ -132,7 +132,7 @@ export class OrderService {
     try {
       const response = await apiClient.post<PaymentResponse>(
         ORDER_ENDPOINTS.PAY_ORDER,
-        data
+        data,
       );
       return response.data;
     } catch (error) {
@@ -160,7 +160,7 @@ export class OrderService {
   async getOrderSummary(id: string | number): Promise<OrderSummary> {
     try {
       const response = await apiClient.get<OrderSummary>(
-        EndpointBuilders.orderSummary(id)
+        EndpointBuilders.orderSummary(id),
       );
       return response.data;
     } catch (error) {
@@ -179,7 +179,7 @@ export class OrderService {
         {},
         {
           responseType: 'blob',
-        }
+        },
       );
       return response.data;
     } catch (error) {

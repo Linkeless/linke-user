@@ -352,7 +352,7 @@ export function getDefaultTitle(pathname: string): string {
 export function addRouteMetadata(metadata: RouteMetadata): void {
   // Check if route already exists
   const existingIndex = ROUTE_METADATA.findIndex(
-    route => route.path === metadata.path
+    route => route.path === metadata.path,
   );
 
   if (existingIndex >= 0) {
@@ -384,7 +384,7 @@ export function removeRouteMetadata(path: string): void {
  */
 export function getRoutesWithUsername(): string[] {
   return ROUTE_METADATA.filter(route => route.showUsername).map(
-    route => route.path
+    route => route.path,
   );
 }
 
@@ -395,7 +395,7 @@ export function getRoutesWithUsername(): string[] {
  */
 export function getRoutesWithNotifications(): string[] {
   return ROUTE_METADATA.filter(route => route.showNotifications).map(
-    route => route.path
+    route => route.path,
   );
 }
 
@@ -436,7 +436,7 @@ export function validateRouteMetadata(): {
 
     if (route.title && route.title.length > 50) {
       warnings.push(
-        `Route ${route.path} has very long title (${route.title.length} chars)`
+        `Route ${route.path} has very long title (${route.title.length} chars)`,
       );
     }
   }
@@ -455,15 +455,15 @@ export const AUTHENTICATION_ROUTES = ROUTE_METADATA.filter(
   route =>
     route.path.startsWith('/auth') ||
     route.path.includes('login') ||
-    route.path.includes('register')
+    route.path.includes('register'),
 );
 
 export const USER_ROUTES = ROUTE_METADATA.filter(
-  route => route.showUsername === true
+  route => route.showUsername === true,
 );
 
 export const PUBLIC_ROUTES = ROUTE_METADATA.filter(
-  route => route.showUsername === false && !route.path.startsWith('/auth')
+  route => route.showUsername === false && !route.path.startsWith('/auth'),
 );
 
 /**

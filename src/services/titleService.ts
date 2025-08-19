@@ -167,7 +167,7 @@ export class TitleService {
         newTitle = this.formatter.buildTitleWithLoadingState(
           newTitle,
           true,
-          this.titleState.loadingStartTime
+          this.titleState.loadingStartTime,
         );
       }
 

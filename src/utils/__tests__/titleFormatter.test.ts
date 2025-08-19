@@ -72,7 +72,7 @@ describe('TitleFormatter', () => {
 
       const result = formatter.format(parts);
       expect(result).toBe(
-        '(3)  - Loading...  - Dashboard - john_doe - Linke User...'
+        '(3)  - Loading...  - Dashboard - john_doe - Linke User...',
       );
     });
 
@@ -224,7 +224,7 @@ describe('TitleFormatter', () => {
       const result = formatter.buildTitleWithLoadingState(
         baseTitle,
         true,
-        startTime
+        startTime,
       );
       expect(result).toBe('Still loading... Dashboard - App');
     });
@@ -235,7 +235,7 @@ describe('TitleFormatter', () => {
       const result = formatter.buildTitleWithLoadingState(
         baseTitle,
         true,
-        startTime
+        startTime,
       );
       expect(result).toBe('Loading... Dashboard - App');
     });
@@ -261,7 +261,7 @@ describe('TitleFormatter', () => {
       const result = formatter.validate(title);
       expect(result.isValid).toBe(false);
       expect(result.errors).toContain(
-        expect.stringContaining('Title exceeds maximum safe length')
+        expect.stringContaining('Title exceeds maximum safe length'),
       );
     });
 

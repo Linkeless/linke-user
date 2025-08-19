@@ -58,7 +58,7 @@ vi.mock('@/components/ui/input', () => ({
         name,
         ...props
       }: any,
-      ref: any
+      ref: any,
     ) => (
       <input
         {...props}
@@ -71,7 +71,7 @@ vi.mock('@/components/ui/input', () => ({
         name={name}
         data-testid={`input-${name}`}
       />
-    )
+    ),
   ),
 }));
 
@@ -136,7 +136,7 @@ describe('LoginForm', () => {
       expect(passwordInput).toHaveAttribute('type', 'password');
       expect(passwordInput).toHaveAttribute(
         'placeholder',
-        'Enter your password'
+        'Enter your password',
       );
       expect(passwordInput).toHaveAttribute('autocomplete', 'current-password');
     });

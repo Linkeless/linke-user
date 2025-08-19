@@ -126,7 +126,7 @@ export const useAuth = (): UseAuthReturn => {
         setLoading(false);
       }
     },
-    [setUser, setTokens, setLoading, setError, setAuthenticated]
+    [setUser, setTokens, setLoading, setError, setAuthenticated],
   );
 
   /**
@@ -223,7 +223,7 @@ export const useAuth = (): UseAuthReturn => {
         throw error;
       }
     },
-    [setError]
+    [setError],
   );
 
   /**
@@ -233,7 +233,7 @@ export const useAuth = (): UseAuthReturn => {
     async (
       provider: OAuthProvider,
       code: string,
-      state?: string
+      state?: string,
     ): Promise<void> => {
       try {
         setLoading(true);
@@ -242,7 +242,7 @@ export const useAuth = (): UseAuthReturn => {
         const response = await authServiceUtils.handleOAuthCallback(
           provider,
           code,
-          state
+          state,
         );
 
         // Update store with user and tokens
@@ -261,7 +261,7 @@ export const useAuth = (): UseAuthReturn => {
         setLoading(false);
       }
     },
-    [setUser, setTokens, setLoading, setError, setAuthenticated]
+    [setUser, setTokens, setLoading, setError, setAuthenticated],
   );
 
   /**
@@ -285,7 +285,7 @@ export const useAuth = (): UseAuthReturn => {
         setLoading(false);
       }
     },
-    [setLoading, setError]
+    [setLoading, setError],
   );
 
   /**

@@ -24,13 +24,13 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           'checked:bg-primary checked:border-primary checked:text-primary-foreground',
           'disabled:cursor-not-allowed disabled:opacity-50',
           'dark:bg-input/30 dark:border-input',
-          className
+          className,
         )}
         onChange={handleChange}
         {...props}
       />
     );
-  }
+  },
 );
 Checkbox.displayName = 'Checkbox';
 

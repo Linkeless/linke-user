@@ -32,7 +32,7 @@ export function createI18nValidationSchemas(t: TFunction) {
    */
   const strongPasswordSchema = passwordSchema.regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
-    t('validation.password.complexity')
+    t('validation.password.complexity'),
   );
 
   /**
@@ -74,7 +74,7 @@ export function createI18nValidationSchemas(t: TFunction) {
       .or(z.string().pipe(z.coerce.date()))
       .refine(
         date => date <= new Date(),
-        t('validation.user.createdAtInvalid')
+        t('validation.user.createdAtInvalid'),
       ),
   });
 
@@ -87,14 +87,14 @@ export function createI18nValidationSchemas(t: TFunction) {
       .min(1, t('validation.tokens.accessTokenRequired'))
       .regex(
         /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_.+/=]*$/,
-        t('validation.tokens.invalidFormat')
+        t('validation.tokens.invalidFormat'),
       ),
     refreshToken: z
       .string()
       .min(1, t('validation.tokens.refreshTokenRequired'))
       .regex(
         /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_.+/=]*$/,
-        t('validation.tokens.invalidFormat')
+        t('validation.tokens.invalidFormat'),
       ),
     expiresIn: z
       .number()

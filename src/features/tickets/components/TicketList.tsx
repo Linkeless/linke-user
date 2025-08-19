@@ -44,7 +44,7 @@ export function TicketList({
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<TicketStatus | 'all'>('all');
   const [priorityFilter, setPriorityFilter] = useState<TicketPriority | 'all'>(
-    'all'
+    'all',
   );
 
   // Filter tickets based on search and filters

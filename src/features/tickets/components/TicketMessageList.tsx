@@ -29,7 +29,7 @@ export function TicketMessageList({
   useEffect(() => {
     if (scrollAreaRef.current) {
       const scrollContainer = scrollAreaRef.current.querySelector(
-        '[data-radix-scroll-area-viewport]'
+        '[data-radix-scroll-area-viewport]',
       );
       if (scrollContainer) {
         scrollContainer.scrollTop = scrollContainer.scrollHeight;
@@ -64,7 +64,7 @@ export function TicketMessageList({
   // Sort messages by creation date (oldest first)
   const sortedMessages = [...messages].sort(
     (a, b) =>
-      new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+      new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
   );
 
   return (

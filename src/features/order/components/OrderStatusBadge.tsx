@@ -39,7 +39,7 @@ export function OrderStatusBadge({ status, className }: OrderStatusBadgeProps) {
       className={cn(
         'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium',
         getStatusStyles(status),
-        className
+        className,
       )}
     >
       {t(`status.${status}`)}

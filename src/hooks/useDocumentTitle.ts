@@ -51,7 +51,7 @@ export function useDocumentTitle(options: UseDocumentTitleOptions): void {
       page: title,
       isLoading,
     }),
-    [title, isLoading, ...dependencies]
+    [title, isLoading, ...dependencies],
   );
 
   // Effect to update title when options change
@@ -67,7 +67,7 @@ export function useDocumentTitle(options: UseDocumentTitleOptions): void {
     };
     const optionsChanged = !isOptionsEqual(
       currentOptions,
-      previousOptionsRef.current
+      previousOptionsRef.current,
     );
 
     if (optionsChanged) {
@@ -159,7 +159,7 @@ export function useLoadingTitle(title: string, isLoading: boolean): void {
 export function useUserTitle(
   title: string,
   username?: string,
-  options: Partial<UseDocumentTitleOptions> = {}
+  options: Partial<UseDocumentTitleOptions> = {},
 ): void {
   const titleService = useMemo(() => TitleService.getInstance(), []);
 
@@ -200,7 +200,7 @@ export function useUserTitle(
 export function useNotificationTitle(
   title: string,
   notificationCount: number,
-  options: Partial<UseDocumentTitleOptions> = {}
+  options: Partial<UseDocumentTitleOptions> = {},
 ): void {
   const titleService = useMemo(() => TitleService.getInstance(), []);
 
@@ -245,7 +245,7 @@ export function useTitleInfo() {
  */
 function isOptionsEqual(
   current: Partial<UseDocumentTitleOptions>,
-  previous?: Partial<UseDocumentTitleOptions>
+  previous?: Partial<UseDocumentTitleOptions>,
 ): boolean {
   if (!previous) {
     return false;
@@ -266,7 +266,7 @@ function isOptionsEqual(
 export function useRouteTitle(
   routePath: string,
   defaultTitle: string,
-  options: Partial<UseDocumentTitleOptions> = {}
+  options: Partial<UseDocumentTitleOptions> = {},
 ): void {
   const memoizedOptions = useMemo(
     () => ({
@@ -274,7 +274,7 @@ export function useRouteTitle(
       ...options,
       dependencies: [routePath, ...(options.dependencies || [])],
     }),
-    [routePath, defaultTitle, options]
+    [routePath, defaultTitle, options],
   );
 
   useDocumentTitle(memoizedOptions);
@@ -285,7 +285,7 @@ export function useRouteTitle(
  * Logs title changes to console in development mode
  */
 export function useTitleDebug(
-  enabled: boolean = process.env.NODE_ENV === 'development'
+  enabled: boolean = process.env.NODE_ENV === 'development',
 ): void {
   const titleService = useMemo(() => TitleService.getInstance(), []);
 

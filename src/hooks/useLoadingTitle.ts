@@ -91,14 +91,14 @@ export function useLoadingTitle(options: UseLoadingTitleOptions = {}) {
 
   const mergedConfig = useMemo(
     () => ({ ...DEFAULT_CONFIG, ...config }),
-    [config]
+    [config],
   );
   const titleContext = useTitleContext();
   const shouldUpdateGlobal = options.updateGlobalState ?? true;
   const titleService = useMemo(() => TitleService.getInstance(), []);
 
   const [operations, setOperations] = useState<Map<string, LoadingOperation>>(
-    new Map()
+    new Map(),
   );
   const [currentPrefix, setCurrentPrefix] = useState<string>('');
   const timerRefs = useRef<Map<string, NodeJS.Timeout>>(new Map());
@@ -110,7 +110,7 @@ export function useLoadingTitle(options: UseLoadingTitleOptions = {}) {
       return null;
     }
     return Array.from(operations.values()).reduce((oldest, current) =>
-      current.startTime < oldest.startTime ? current : oldest
+      current.startTime < oldest.startTime ? current : oldest,
     );
   }, [operations]);
 
@@ -139,7 +139,7 @@ export function useLoadingTitle(options: UseLoadingTitleOptions = {}) {
 
       if (debug) {
         console.log(
-          `[useLoadingTitle] Title prefix updated: "${prefix}" (duration: ${duration}ms)`
+          `[useLoadingTitle] Title prefix updated: "${prefix}" (duration: ${duration}ms)`,
         );
       }
     }
@@ -178,7 +178,7 @@ export function useLoadingTitle(options: UseLoadingTitleOptions = {}) {
           stopLoading(id);
           if (debug) {
             console.warn(
-              `[useLoadingTitle] Operation "${description}" timed out after ${timeout}ms`
+              `[useLoadingTitle] Operation "${description}" timed out after ${timeout}ms`,
             );
           }
         }, timeout);
@@ -187,13 +187,13 @@ export function useLoadingTitle(options: UseLoadingTitleOptions = {}) {
 
       if (debug) {
         console.log(
-          `[useLoadingTitle] Started loading: "${description}" (id: ${id})`
+          `[useLoadingTitle] Started loading: "${description}" (id: ${id})`,
         );
       }
 
       return id;
     },
-    [mergedConfig, updateTitlePrefix, debug]
+    [mergedConfig, updateTitlePrefix, debug],
   );
 
   /**
@@ -209,7 +209,7 @@ export function useLoadingTitle(options: UseLoadingTitleOptions = {}) {
           const operation = prev.get(id);
           const duration = operation ? Date.now() - operation.startTime : 0;
           console.log(
-            `[useLoadingTitle] Stopped loading: "${operation?.description}" (duration: ${duration}ms)`
+            `[useLoadingTitle] Stopped loading: "${operation?.description}" (duration: ${duration}ms)`,
           );
         }
 
@@ -226,7 +226,7 @@ export function useLoadingTitle(options: UseLoadingTitleOptions = {}) {
         }
       });
     },
-    [debug]
+    [debug],
   );
 
   /**
@@ -235,7 +235,7 @@ export function useLoadingTitle(options: UseLoadingTitleOptions = {}) {
   const stopAllLoading = useCallback(() => {
     if (debug && operations.size > 0) {
       console.log(
-        `[useLoadingTitle] Stopping all ${operations.size} loading operations`
+        `[useLoadingTitle] Stopping all ${operations.size} loading operations`,
       );
     }
 
@@ -253,7 +253,7 @@ export function useLoadingTitle(options: UseLoadingTitleOptions = {}) {
     (id: string): LoadingOperation | undefined => {
       return operations.get(id);
     },
-    [operations]
+    [operations],
   );
 
   /**
@@ -305,7 +305,7 @@ export function useLoadingTitle(options: UseLoadingTitleOptions = {}) {
         oldestOperation &&
         Date.now() - oldestOperation.startTime > mergedConfig.maxLoadingTime,
     }),
-    [isLoading, operations.size, currentPrefix, oldestOperation, mergedConfig]
+    [isLoading, operations.size, currentPrefix, oldestOperation, mergedConfig],
   );
 
   return {
@@ -340,7 +340,7 @@ export function useSimpleLoading(baseTitle?: string) {
       setIsLoading(true);
       return startLoading(description);
     },
-    [startLoading]
+    [startLoading],
   );
 
   const stop = useCallback(
@@ -348,13 +348,13 @@ export function useSimpleLoading(baseTitle?: string) {
       setIsLoading(false);
       stopLoading(id);
     },
-    [stopLoading]
+    [stopLoading],
   );
 
   const withLoading = useCallback(
     async <T>(
       operation: () => Promise<T>,
-      description?: string
+      description?: string,
     ): Promise<T> => {
       const id = start(description);
       try {
@@ -363,7 +363,7 @@ export function useSimpleLoading(baseTitle?: string) {
         stop(id);
       }
     },
-    [start, stop]
+    [start, stop],
   );
 
   return {
@@ -394,7 +394,7 @@ export function useMultipleLoading() {
     (descriptions: string[]): boolean => {
       return descriptions.some(desc => loadingStates[desc]);
     },
-    [loadingStates]
+    [loadingStates],
   );
 
   return {
@@ -413,7 +413,7 @@ export function useMultipleLoading() {
 export function usePromiseLoading<T>(
   promiseFactory: (() => Promise<T>) | null,
   description: string = 'Loading',
-  dependencies: any[] = []
+  dependencies: any[] = [],
 ) {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<Error | null>(null);

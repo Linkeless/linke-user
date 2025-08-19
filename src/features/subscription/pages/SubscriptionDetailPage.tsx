@@ -102,7 +102,7 @@ function BillingInfoCard({ subscription }: { subscription: any }) {
             </label>
             <div className='text-sm'>
               {formatDate(
-                subscription.next_billing_date || subscription.end_date
+                subscription.next_billing_date || subscription.end_date,
               )}
             </div>
           </div>

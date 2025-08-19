@@ -158,7 +158,7 @@ export default function PlanSelectionPage() {
           ? prev.filter(id => id !== planId)
           : prev.length < 4 // Limit comparison to 4 plans
             ? [...prev, planId]
-            : prev
+            : prev,
       );
     }
   };
@@ -187,7 +187,7 @@ export default function PlanSelectionPage() {
         p.name.replace(/\s*(monthly|yearly|annual)/i, '') ===
         plans
           .find(plan => plan.id === planId)
-          ?.name.replace(/\s*(monthly|yearly|annual)/i, '')
+          ?.name.replace(/\s*(monthly|yearly|annual)/i, ''),
     );
     return monthlyPlan?.price;
   };

@@ -20,7 +20,7 @@ export const loginSchema = z.object({
     .max(128, 'Password is too long')
     .regex(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
-      'Password must contain at least one lowercase letter, one uppercase letter, and one number'
+      'Password must contain at least one lowercase letter, one uppercase letter, and one number',
     ),
 
   rememberMe: z.boolean().default(false),
@@ -47,7 +47,7 @@ export const userSchema = z.object({
     .max(50, 'Username is too long')
     .regex(
       /^[a-zA-Z0-9_-]+$/,
-      'Username can only contain letters, numbers, hyphens, and underscores'
+      'Username can only contain letters, numbers, hyphens, and underscores',
     )
     .trim(),
 
@@ -63,7 +63,7 @@ export const userSchema = z.object({
     .or(z.string().pipe(z.coerce.date()))
     .refine(
       date => date <= new Date(),
-      'Creation date cannot be in the future'
+      'Creation date cannot be in the future',
     ),
 });
 
@@ -77,7 +77,7 @@ export const authTokensSchema = z.object({
     .min(1, 'Access token is required')
     .regex(
       /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_.+/=]*$/,
-      'Invalid JWT token format'
+      'Invalid JWT token format',
     ),
 
   refreshToken: z
@@ -85,7 +85,7 @@ export const authTokensSchema = z.object({
     .min(1, 'Refresh token is required')
     .regex(
       /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_.+/=]*$/,
-      'Invalid JWT token format'
+      'Invalid JWT token format',
     ),
 
   expiresIn: z
@@ -129,7 +129,7 @@ export const passwordSchema = z
  */
 export const strongPasswordSchema = passwordSchema.regex(
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/,
-  'Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character'
+  'Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character',
 );
 
 /**
@@ -143,7 +143,7 @@ export const passwordConfirmationSchema = z
   })
   .refine(
     data => data.password === data.confirmPassword,
-    'Passwords do not match'
+    'Passwords do not match',
   );
 
 /**
@@ -179,7 +179,7 @@ export type ApiErrorData = z.infer<typeof apiErrorSchema>;
  */
 export function safeValidate<T>(
   schema: z.ZodSchema<T>,
-  data: unknown
+  data: unknown,
 ): { success: true; data: T } | { success: false; error: z.ZodError } {
   const result = schema.safeParse(data);
 
@@ -227,7 +227,7 @@ export function getFieldErrors(error: z.ZodError): Record<string, string> {
  */
 export function validateFormData<T>(
   schema: z.ZodSchema<T>,
-  data: unknown
+  data: unknown,
 ):
   | { success: true; data: T }
   | { success: false; fieldErrors: Record<string, string>; message: string } {

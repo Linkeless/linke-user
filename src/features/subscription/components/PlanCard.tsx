@@ -111,7 +111,7 @@ export function PlanCard({
   const calculateMonthlyPrice = subscriptionPlanService.calculateMonthlyPrice(
     plan.price,
     plan.billing_cycle,
-    plan.billing_interval
+    plan.billing_interval,
   );
 
   // Calculate discount if monthly price is provided

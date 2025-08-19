@@ -17,7 +17,7 @@ export class SubscriptionPlanService {
   async getPlans(
     currency?: string,
     limit = 100,
-    offset = 0
+    offset = 0,
   ): Promise<{ data: SubscriptionPlanResponse[]; total: number }> {
     try {
       const params = new URLSearchParams();
@@ -28,7 +28,7 @@ export class SubscriptionPlanService {
       params.append('offset', offset.toString());
 
       const response = await apiClient.get(
-        `${SUBSCRIPTION_ENDPOINTS.PLANS}?${params.toString()}`
+        `${SUBSCRIPTION_ENDPOINTS.PLANS}?${params.toString()}`,
       );
 
       // Handle HAL collection response
@@ -51,7 +51,7 @@ export class SubscriptionPlanService {
       params.append('limit', limit.toString());
 
       const response = await apiClient.get<SubscriptionPlanResponse[]>(
-        `${SUBSCRIPTION_ENDPOINTS.POPULAR_PLANS}?${params.toString()}`
+        `${SUBSCRIPTION_ENDPOINTS.POPULAR_PLANS}?${params.toString()}`,
       );
 
       return response.data;
@@ -67,7 +67,7 @@ export class SubscriptionPlanService {
   async getPlanById(id: string | number): Promise<SubscriptionPlanResponse> {
     try {
       const response = await apiClient.get<SubscriptionPlanResponse>(
-        EndpointBuilders.planById(id)
+        EndpointBuilders.planById(id),
       );
       return response.data;
     } catch (error) {
@@ -82,7 +82,7 @@ export class SubscriptionPlanService {
   async getPlanByCode(code: string): Promise<SubscriptionPlanResponse> {
     try {
       const response = await apiClient.get<SubscriptionPlanResponse>(
-        EndpointBuilders.planByCode(code)
+        EndpointBuilders.planByCode(code),
       );
       return response.data;
     } catch (error) {
@@ -112,7 +112,7 @@ export class SubscriptionPlanService {
   calculateMonthlyPrice(
     price: number,
     billingCycle: string,
-    billingInterval: number
+    billingInterval: number,
   ): number {
     switch (billingCycle) {
       case 'monthly':
@@ -139,7 +139,7 @@ export class SubscriptionPlanService {
     }
     const yearlyMonthlyEquivalent = monthlyPrice * 12;
     return Math.round(
-      ((yearlyMonthlyEquivalent - yearlyPrice) / yearlyMonthlyEquivalent) * 100
+      ((yearlyMonthlyEquivalent - yearlyPrice) / yearlyMonthlyEquivalent) * 100,
     );
   }
 }

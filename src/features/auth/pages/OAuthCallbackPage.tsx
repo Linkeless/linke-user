@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams, useParams } from 'react-router-dom';
 import { toast } from 'sonner';
 import { Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -20,6 +20,7 @@ import type { OAuthProvider } from '@/features/auth/types/auth.types';
 export function OAuthCallbackPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const { provider } = useParams<{ provider: string }>();
   const { setUser, setTokens, setAuthenticated } = useAuthStore();
   const [isProcessing, setIsProcessing] = useState(true);
   const { t } = useTranslation('auth');
@@ -31,7 +32,7 @@ export function OAuthCallbackPage() {
     const handleCallback = async () => {
       // Get OAuth callback parameters
       const code = searchParams.get('code');
-      const state = searchParams.get('state');
+      const state = searchParams.get('state'); // Keep state parameter intact for backend validation
       const error = searchParams.get('error');
       const errorDescription = searchParams.get('error_description');
 
@@ -55,35 +56,23 @@ export function OAuthCallbackPage() {
         return;
       }
 
+      // Validate provider from URL parameter
+      if (!provider) {
+        setIsProcessing(false);
+        toast.error(t('oauth.callback.invalidCallback'), {
+          description: 'OAuth provider not specified',
+        });
+        navigate('/login', { replace: true });
+        return;
+      }
+
       try {
-        // Extract provider from state parameter or URL path
-        // State parameter should contain provider info
-        let provider: OAuthProvider = 'google'; // default
-
-        // Try to parse provider from state
-        if (state) {
-          try {
-            const stateData = JSON.parse(atob(state));
-            if (stateData.provider) {
-              provider = stateData.provider as OAuthProvider;
-            }
-          } catch {
-            // State might be a simple string, try to extract provider
-            if (state.includes('google')) {
-              provider = 'google';
-            } else if (state.includes('github')) {
-              provider = 'github';
-            } else if (state.includes('telegram')) {
-              provider = 'telegram';
-            }
-          }
-        }
-
         // Exchange authorization code for tokens
+        // Pass state parameter as-is for backend CSRF validation
         const response = await authService.handleOAuthCallback(
-          provider,
+          provider as OAuthProvider,
           code,
-          state || undefined
+          state || undefined,
         );
 
         // Update auth store
@@ -117,7 +106,7 @@ export function OAuthCallbackPage() {
     };
 
     handleCallback();
-  }, [searchParams, navigate, setUser, setTokens, setAuthenticated]);
+  }, [provider, searchParams, navigate, setUser, setTokens, setAuthenticated, t]);
 
   return (
     <div className='min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted p-4'>

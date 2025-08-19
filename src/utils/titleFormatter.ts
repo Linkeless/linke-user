@@ -48,7 +48,7 @@ export class TitleFormatter {
     if (parts.username) {
       const truncatedUsername = this.truncate(
         parts.username,
-        this.config.usernameMaxLength
+        this.config.usernameMaxLength,
       );
       segments.push(this.sanitize(truncatedUsername));
     }
@@ -74,7 +74,7 @@ export class TitleFormatter {
     // Try to truncate at word boundary
     const truncated = text.substring(
       0,
-      maxLength - this.config.truncationSuffix.length
+      maxLength - this.config.truncationSuffix.length,
     );
     const lastSpaceIndex = truncated.lastIndexOf(' ');
 
@@ -117,7 +117,7 @@ export class TitleFormatter {
     // Allow: letters, numbers, spaces, common punctuation, and common symbols
     sanitized = sanitized.replace(
       /[^\w\s\-.,!?'"@#$%&*()+=:;/\\|[\]{}~`\u4e00-\u9fa5]/g,
-      ''
+      '',
     );
 
     // Trim whitespace
@@ -130,7 +130,7 @@ export class TitleFormatter {
   buildTitleWithLoadingState(
     baseTitle: string,
     isLoading: boolean,
-    loadingStartTime?: number
+    loadingStartTime?: number,
   ): string {
     if (!isLoading) {
       return baseTitle;
@@ -176,7 +176,7 @@ export class TitleFormatter {
 
     if (title && title.length > this.config.maxLength * 2) {
       errors.push(
-        `Title exceeds maximum safe length (${this.config.maxLength * 2})`
+        `Title exceeds maximum safe length (${this.config.maxLength * 2})`,
       );
     }
 

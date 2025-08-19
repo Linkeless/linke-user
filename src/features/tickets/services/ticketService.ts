@@ -23,7 +23,7 @@ export class TicketService {
    * Get user's tickets with optional filters
    */
   async getTickets(
-    filters?: TicketFilters
+    filters?: TicketFilters,
   ): Promise<PaginatedResponse<TicketResponse>> {
     try {
       const params = new URLSearchParams();
@@ -45,7 +45,7 @@ export class TicketService {
       }
 
       const response = await apiClient.get(
-        `${TICKET_ENDPOINTS.MY_TICKETS}${params.toString() ? `?${params.toString()}` : ''}`
+        `${TICKET_ENDPOINTS.MY_TICKETS}${params.toString() ? `?${params.toString()}` : ''}`,
       );
 
       // Handle response - adapt to API response structure
@@ -60,7 +60,7 @@ export class TicketService {
           limit: filters?.limit || 20,
           total_pages: Math.ceil(
             (data.total || data._embedded.tickets.length) /
-              (filters?.limit || 20)
+              (filters?.limit || 20),
           ),
         };
       }
@@ -85,7 +85,7 @@ export class TicketService {
   async getTicket(id: number): Promise<TicketResponse> {
     try {
       const response = await apiClient.get<TicketResponse>(
-        EndpointBuilders.ticketById(id)
+        EndpointBuilders.ticketById(id),
       );
       return response.data;
     } catch (error) {
@@ -101,7 +101,7 @@ export class TicketService {
     try {
       const response = await apiClient.post<TicketResponse>(
         TICKET_ENDPOINTS.TICKETS,
-        data
+        data,
       );
       return response.data;
     } catch (error) {
@@ -116,7 +116,7 @@ export class TicketService {
   async closeTicket(id: number): Promise<TicketResponse> {
     try {
       const response = await apiClient.put<TicketResponse>(
-        EndpointBuilders.closeTicket(id)
+        EndpointBuilders.closeTicket(id),
       );
       return response.data;
     } catch (error) {
@@ -131,7 +131,7 @@ export class TicketService {
   async getMessages(ticketId: number): Promise<TicketMessageResponse[]> {
     try {
       const response = await apiClient.get<TicketMessageResponse[]>(
-        EndpointBuilders.ticketMessages(ticketId)
+        EndpointBuilders.ticketMessages(ticketId),
       );
 
       // Handle array or object response
@@ -157,12 +157,12 @@ export class TicketService {
    */
   async createMessage(
     ticketId: number,
-    data: CreateMessageRequest
+    data: CreateMessageRequest,
   ): Promise<TicketMessageResponse> {
     try {
       const response = await apiClient.post<TicketMessageResponse>(
         EndpointBuilders.ticketMessages(ticketId),
-        data
+        data,
       );
       return response.data;
     } catch (error) {

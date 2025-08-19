@@ -51,7 +51,7 @@ export function TicketCard({ ticket, className }: TicketCardProps) {
     <Card
       className={cn(
         'cursor-pointer hover:shadow-md transition-shadow',
-        className
+        className,
       )}
       onClick={handleClick}
     >

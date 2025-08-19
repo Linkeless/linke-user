@@ -225,7 +225,7 @@ function installTitlePolyfill(): void {
   if (config.logWarnings) {
     console.warn(
       `[TitlePolyfill] Browser ${browserSupport.browserName} ${browserSupport.browserVersion} ` +
-        'has limited title support. Installing polyfill...'
+        'has limited title support. Installing polyfill...',
     );
   }
 
@@ -309,7 +309,7 @@ function uninstallTitlePolyfill(): void {
  * Initialize title polyfill with configuration
  */
 export function initializeTitlePolyfill(
-  userConfig: Partial<PolyfillConfig> = {}
+  userConfig: Partial<PolyfillConfig> = {},
 ): BrowserSupport {
   config = { ...DEFAULT_CONFIG, ...userConfig };
 

@@ -80,7 +80,7 @@ export function OAuthButtons({
         toast.info(
           t('oauth.redirecting', {
             provider: provider.charAt(0).toUpperCase() + provider.slice(1),
-          })
+          }),
         );
 
         // Call backend to get the OAuth authorization URL
@@ -158,7 +158,7 @@ export function OAuthButtons({
                 <Icon className='size-4' />
                 {t('oauth.continueWith', { provider: name })}
               </Button>
-            )
+            ),
           )
         ) : (
           <p className='text-center text-sm text-gray-500'>

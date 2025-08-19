@@ -84,7 +84,7 @@ class LiveRegionManager {
   private createLiveRegion(
     id: string,
     role: LiveRegionType,
-    ariaPoliteness: 'off' | 'polite' | 'assertive'
+    ariaPoliteness: 'off' | 'polite' | 'assertive',
   ): HTMLElement {
     // Remove existing region if it exists
     this.removeLiveRegion(id);
@@ -117,7 +117,7 @@ class LiveRegionManager {
 
     if (this.config.debug) {
       console.log(
-        `[TitleAnnouncer] Created live region: ${id} (${role}, ${ariaPoliteness})`
+        `[TitleAnnouncer] Created live region: ${id} (${role}, ${ariaPoliteness})`,
       );
     }
 
@@ -395,7 +395,7 @@ let globalAnnouncer: TitleAnnouncer | null = null;
  * Initialize global announcer
  */
 export function initializeAnnouncer(
-  config: Partial<AnnouncementConfig> = {}
+  config: Partial<AnnouncementConfig> = {},
 ): TitleAnnouncer {
   if (globalAnnouncer) {
     globalAnnouncer.cleanup();
@@ -427,7 +427,7 @@ export function announceTitle(context: AnnouncementContext): void {
  */
 export function announceLoading(
   isLoading: boolean,
-  description?: string
+  description?: string,
 ): void {
   if (!globalAnnouncer) {
     globalAnnouncer = new TitleAnnouncer();
@@ -450,7 +450,7 @@ export function announceNotifications(count: number): void {
  */
 export function announceNavigation(
   newTitle: string,
-  previousTitle?: string
+  previousTitle?: string,
 ): void {
   if (!globalAnnouncer) {
     globalAnnouncer = new TitleAnnouncer();

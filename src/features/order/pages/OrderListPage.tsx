@@ -110,7 +110,7 @@ export function OrderListPage() {
       order.order_no.toLowerCase().includes(searchTerm.toLowerCase()) ||
       order.subscription_plan?.name
         ?.toLowerCase()
-        .includes(searchTerm.toLowerCase())
+        .includes(searchTerm.toLowerCase()),
   );
 
   return (

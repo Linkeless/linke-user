@@ -206,7 +206,7 @@ export function OrderDetailModal({
                         <span className='font-medium'>
                           {orderService.formatAmount(
                             item.total_price,
-                            order.currency
+                            order.currency,
                           )}
                         </span>
                       </div>
@@ -222,7 +222,7 @@ export function OrderDetailModal({
                         <span>
                           {orderService.formatAmount(
                             summary.subtotal,
-                            order.currency
+                            order.currency,
                           )}
                         </span>
                       </div>
@@ -235,7 +235,7 @@ export function OrderDetailModal({
                             -
                             {orderService.formatAmount(
                               summary.discount,
-                              order.currency
+                              order.currency,
                             )}
                           </span>
                         </div>
@@ -248,7 +248,7 @@ export function OrderDetailModal({
                           <span>
                             {orderService.formatAmount(
                               summary.tax,
-                              order.currency
+                              order.currency,
                             )}
                           </span>
                         </div>
@@ -258,7 +258,7 @@ export function OrderDetailModal({
                         <span>
                           {orderService.formatAmount(
                             summary.total,
-                            order.currency
+                            order.currency,
                           )}
                         </span>
                       </div>

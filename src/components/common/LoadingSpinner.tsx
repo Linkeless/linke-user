@@ -99,7 +99,7 @@ function DefaultSpinner({
         'animate-spin',
         getSizeClasses(size),
         getColorClasses(color),
-        className
+        className,
       )}
     />
   );
@@ -129,7 +129,7 @@ function DotsSpinner({
           className={cn(
             'rounded-full animate-bounce bg-current',
             dotSize,
-            colorClass
+            colorClass,
           )}
           style={{
             animationDelay: `${i * 0.1}s`,
@@ -159,7 +159,7 @@ function PulseSpinner({
         'rounded-full animate-pulse bg-current',
         getSizeClasses(size),
         getColorClasses(color),
-        className
+        className,
       )}
       style={{
         animationDuration: '1.5s',
@@ -193,7 +193,7 @@ function BarsSpinner({
             'bg-current animate-pulse',
             barWidth,
             barHeight,
-            colorClass
+            colorClass,
           )}
           style={{
             animationDelay: `${i * 0.15}s`,
@@ -223,7 +223,7 @@ function MinimalSpinner({
         'animate-spin',
         getSizeClasses(size),
         getColorClasses(color),
-        className
+        className,
       )}
       style={{
         animationDuration: '2s',
@@ -298,7 +298,7 @@ export function LoadingSpinner({
       className={cn(
         'flex flex-col items-center justify-center',
         centered && 'min-h-[200px]',
-        className
+        className,
       )}
       role='status'
       aria-label={ariaLabel}
@@ -312,7 +312,7 @@ export function LoadingSpinner({
           className={cn(
             'mt-3 font-medium text-center',
             getMessageSize(),
-            getColorClasses(color)
+            getColorClasses(color),
           )}
         >
           {message}

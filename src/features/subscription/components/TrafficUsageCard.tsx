@@ -195,7 +195,7 @@ export function TrafficUsageCard({
 
   const isUnlimited = userSubscriptionService.isUnlimitedData(trafficStats);
   const usedFormatted = userSubscriptionService.formatBytes(
-    trafficStats.used_bytes
+    trafficStats.used_bytes,
   );
   const totalFormatted = isUnlimited
     ? t('usage.unlimited')

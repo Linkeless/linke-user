@@ -523,7 +523,7 @@ export function sanitizeTitleWithDetails(input: string): SanitizationResult {
  * Create a sanitizer with custom configuration
  */
 export function createSanitizer(
-  config: Partial<SanitizationConfig>
+  config: Partial<SanitizationConfig>,
 ): TitleSanitizer {
   return new TitleSanitizer(config);
 }

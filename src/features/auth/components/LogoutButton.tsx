@@ -203,7 +203,7 @@ export function LogoutButton({
  * Simple logout button without confirmation (for dropdowns, etc.)
  */
 export function SimpleLogoutButton(
-  props: Omit<LogoutButtonProps, 'showConfirmation'>
+  props: Omit<LogoutButtonProps, 'showConfirmation'>,
 ) {
   return <LogoutButton {...props} showConfirmation={false} />;
 }
