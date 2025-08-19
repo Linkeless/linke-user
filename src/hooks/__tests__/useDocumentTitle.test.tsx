@@ -14,11 +14,13 @@ import {
 import { TitleProvider } from '@/contexts/TitleContext';
 import { TitleService } from '@/services/titleService';
 
-// Mock the title service
-jest.mock('@/services/titleService');
-jest.mock('@/utils/titleAnnouncer');
+import { vi } from 'vitest';
 
-const MockTitleService = TitleService as jest.MockedClass<typeof TitleService>;
+// Mock the title service
+vi.mock('@/services/titleService');
+vi.mock('@/utils/titleAnnouncer');
+
+const MockTitleService = TitleService as any;
 
 // Test wrapper with TitleProvider
 const wrapper = ({ children }: { children: ReactNode }) => (
@@ -26,27 +28,27 @@ const wrapper = ({ children }: { children: ReactNode }) => (
 );
 
 describe('useDocumentTitle', () => {
-  let mockTitleService: jest.Mocked<TitleService>;
+  let mockTitleService: any;
 
   beforeEach(() => {
     mockTitleService = {
-      updateWithParts: jest.fn(),
-      setLoadingState: jest.fn(),
-      getState: jest.fn(() => ({
+      updateWithParts: vi.fn(),
+      setLoadingState: vi.fn(),
+      getState: vi.fn(() => ({
         currentTitle: 'Test Title',
         baseTitle: 'Test',
         isLoading: false,
         notificationCount: 0,
         lastUpdate: Date.now(),
       })),
-      getInstance: jest.fn(() => mockTitleService),
+      getInstance: vi.fn(() => mockTitleService),
     } as any;
 
     MockTitleService.getInstance.mockReturnValue(mockTitleService);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe('useDocumentTitle', () => {
@@ -212,7 +214,7 @@ describe('useDocumentTitle', () => {
 
   describe('useUserTitle', () => {
     it('should set user context and title', () => {
-      mockTitleService.setUserContext = jest.fn();
+      mockTitleService.setUserContext = vi.fn();
 
       renderHook(() => useUserTitle('Profile', 'john_doe'), { wrapper });
 
@@ -224,7 +226,7 @@ describe('useDocumentTitle', () => {
     });
 
     it('should handle username changes', () => {
-      mockTitleService.setUserContext = jest.fn();
+      mockTitleService.setUserContext = vi.fn();
 
       const { rerender } = renderHook(
         ({ username }) => useUserTitle('Profile', username),
@@ -244,7 +246,7 @@ describe('useDocumentTitle', () => {
     });
 
     it('should handle undefined username', () => {
-      mockTitleService.setUserContext = jest.fn();
+      mockTitleService.setUserContext = vi.fn();
 
       renderHook(() => useUserTitle('Profile', undefined), { wrapper });
 
@@ -256,7 +258,7 @@ describe('useDocumentTitle', () => {
     });
 
     it('should handle additional options', () => {
-      mockTitleService.setUserContext = jest.fn();
+      mockTitleService.setUserContext = vi.fn();
 
       renderHook(
         () =>

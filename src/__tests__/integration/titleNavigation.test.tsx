@@ -14,9 +14,11 @@ import {
 } from '@/hooks/useDocumentTitle';
 import { TitleService } from '@/services/titleService';
 
+import { vi } from 'vitest';
+
 // Mock external dependencies
-jest.mock('@/utils/titleAnnouncer');
-jest.mock('@/features/auth/stores/authStore', () => ({
+vi.mock('@/utils/titleAnnouncer');
+vi.mock('@/features/auth/stores/authStore', () => ({
   useCurrentUser: () => ({ username: 'testuser', email: 'test@example.com' }),
 }));
 
@@ -327,7 +329,7 @@ describe('Title Navigation Integration', () => {
       // Mock title service to throw error
       const titleService = TitleService.getInstance();
       const originalUpdate = titleService.updateWithParts;
-      titleService.updateWithParts = jest.fn(() => {
+      titleService.updateWithParts = vi.fn(() => {
         throw new Error('Title service error');
       });
 

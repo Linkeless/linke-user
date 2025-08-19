@@ -5,10 +5,12 @@
 import { TitleService } from '../titleService';
 import type { TitleParts } from '@/types/title.types';
 
+import { vi } from 'vitest';
+
 // Mock the announcer
-jest.mock('@/utils/titleAnnouncer', () => ({
-  announceNavigation: jest.fn(),
-  announceLoading: jest.fn(),
+vi.mock('@/utils/titleAnnouncer', () => ({
+  announceNavigation: vi.fn(),
+  announceLoading: vi.fn(),
 }));
 
 describe('TitleService', () => {
@@ -264,7 +266,7 @@ describe('TitleService', () => {
 
   describe('update listeners', () => {
     it('should add and notify listeners', done => {
-      const listener = jest.fn();
+      const listener = vi.fn();
       service.addUpdateListener(listener);
 
       service.setTitle('Test Title');
@@ -278,7 +280,7 @@ describe('TitleService', () => {
     });
 
     it('should remove listeners', done => {
-      const listener = jest.fn();
+      const listener = vi.fn();
       service.addUpdateListener(listener);
       service.removeUpdateListener(listener);
 
@@ -311,7 +313,7 @@ describe('TitleService', () => {
 
   describe('debouncing', () => {
     it('should debounce rapid updates', done => {
-      const listener = jest.fn();
+      const listener = vi.fn();
       service.addUpdateListener(listener);
 
       // Make rapid updates
@@ -359,7 +361,7 @@ describe('TitleService', () => {
 
   describe('cleanup', () => {
     it('should cleanup timers and listeners', () => {
-      const listener = jest.fn();
+      const listener = vi.fn();
       service.addUpdateListener(listener);
 
       service.setTitle('Test'); // This creates a timer
